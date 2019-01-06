@@ -66,7 +66,7 @@ Segmentation The first step to implement ATAA is to classify pixel types and rec
   "description" : "The original paper adaptive temporal antialiasing by Adam Marrs described how ATAA can be implemented in a summary. Yet it did not reveal too much technique details for each step in UE4. In this post, I focus on the technique and problem I came across when adding ATAA to UE4 in my course project without RTX.
 Segmentation The first step to implement ATAA is to classify pixel types and record history information.",
   "inLanguage" : "en",
-  "wordCount": 3652,
+  "wordCount": 3569,
   "datePublished" : "2019-01-06T08:45:22",
   "dateModified" : "2019-01-06T08:45:22",
   "image" : "https://ThisIsTian.github.io/favicon.ico",
@@ -642,8 +642,7 @@ create lighting contribution. The final result is shown in image d). We can free
 <li><strong><code>DepthMagSobol</code></strong> to indicate the depth neighbor variance of the pixel.</li>
 </ul>
 
-<p>Those values will be collaboratively used to determine the segmentation texture.
-You can see the <em>Segmentation</em> texture by enabling ATAA as <code>r.ATAA 1</code>, typing <code>r.ATAA.VisType 3</code> and <code>r.ATAA.Threshold 0</code> to see the <em>Segmentation</em> output.</p>
+<p>Those values will be collaboratively used to determine the segmentation texture.</p>
 
 <p>2). <strong>Sparse path tracing</strong>. I duplicated the <code>FRCPassPostProcessDownsample</code> class as <code>FRCPassPostProcessSparsePathTracing</code> and registered it to the PostProcess graph after Bokeh pass, because it has compute shader templates, which is quite helpful for the implementation of the sparse path tracing. Then the path tracer mentioned above is implemented and traces pixels that only has high TAL. This post <a href="https://medium.com/@jcowles/gpu-ray-tracing-in-one-weekend-3e7d874b3b0f">GPU Ray Tracing in One Weekend</a> helps a lot for the implementation. However, there are three problems that I have run into:</p>
 
@@ -655,13 +654,11 @@ You can see the <em>Segmentation</em> texture by enabling ATAA as <code>r.ATAA 1
 <li><p>There is no explicit API to upload <code>FRWBufferStructured</code> arrays, which I used to upload the geometry and LUTs. But you can write your own encapsulation. This question <a href="https://answers.unrealengine.com/questions/143750/create-structured-buffer-questions.html">Create structured buffer questions</a> asked at UE4 forum is very helpful. To get the basic geometry shape, I added one public API to the <code>FPrimitiveSceneInfo</code> class to access the primitive component, which is originally designed for debugging. Because this is the only way I find to get material properties dynamically like <code>Albedo</code>.</p></li>
 </ul>
 
-<p>To see the sparse tracing result, you can set <code>r.ATAA.1</code> and <code>r.ATAA.Combine 0</code>.If you want to see full tracing result, set <code>r.ATAA.Threshold 0</code>. But be prepared to see performance drop.</p>
-
 <p>3). <strong>Combine</strong>. Now that we have the sparsely traced pixel colors, we can combine it with the original TAA pixels. To achieve this, I add an <code>ATAACombine</code> pass to combine TAA and Sparse path tracing result just before <code>Tonemaping</code>. The reason to do it before this pass is that all color operation is in linear RGB space and passes after this point will be converted to sRGB space that considers human vision characteristics.</p>
 
-<p>What I did in this pass is to directly replace the original pixel marked as ATAA with the corresponding tracing color. You can type <code>r.ATAA.Combine 0</code> or <code>r.ATAA.Combine 1</code> to enable or disable the combination.</p>
+<p>What I did in this pass is to directly replace the original pixel marked as ATAA with the corresponding tracing color.</p>
 
-<p>4). <strong>FXAA</strong>. The last modification is to modify the FXAA pass, where we can directly apply FXAA to pixels where the pixel is marked as FXAA in the segmentation image. Because we have already combined ATAA and TAA image, and those pixels from TAA  samples directly from the texture passed into TAA pass. You can set <code>r.ATAA.FXAA 1</code> to turn it on and <code>r.ATAA.FXAA 0</code> to turn it off.</p>
+<p>4). <strong>FXAA</strong>. The last modification is to modify the FXAA pass, where we can directly apply FXAA to pixels where the pixel is marked as FXAA in the segmentation image. Because we have already combined ATAA and TAA image, and those pixels from TAA  samples directly from the texture passed into TAA pass.</p>
 
 <h2 id="future-work">Future Work</h2>
 
