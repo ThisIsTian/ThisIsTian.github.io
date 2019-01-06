@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Titan de Tian</title>
+    <link>https://ThisIsTian.github.io/</link>
+    <description>Recent content on Titan de Tian</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>xtiant1@gmail.com (Tiantian Xie)</managingEditor>
+    <webMaster>xtiant1@gmail.com (Tiantian Xie)</webMaster>
+    <lastBuildDate>Sun, 06 Jan 2019 08:48:15 -0800</lastBuildDate>
+    
+	<atom:link href="https://ThisIsTian.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Post 2: Add Volumetric Material Support</title>
+      <link>https://ThisIsTian.github.io/post/add-volumetric-material-support/</link>
+      <pubDate>Sun, 06 Jan 2019 08:48:15 -0800</pubDate>
+      <author>xtiant1@gmail.com (Tiantian Xie)</author>
+      <guid>https://ThisIsTian.github.io/post/add-volumetric-material-support/</guid>
+      <description>Introduction Volume object is a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.</description>
+    </item>
+    
+    <item>
+      <title>Post 1: Add ATAA Into UE4</title>
+      <link>https://ThisIsTian.github.io/post/add-ataa-into-ue4/</link>
+      <pubDate>Sun, 06 Jan 2019 08:45:22 -0800</pubDate>
+      <author>xtiant1@gmail.com (Tiantian Xie)</author>
+      <guid>https://ThisIsTian.github.io/post/add-ataa-into-ue4/</guid>
+      <description>The original paper adaptive temporal antialiasing by Adam Marrs described how ATAA can be implemented in a summary. Yet it did not reveal too much technique details for each step in UE4. In this post, I focus on the technique and problem I came across when adding ATAA to UE4 in my course project without RTX.
+Segmentation The first step to implement ATAA is to classify pixel types and record history information.</description>
+    </item>
+    
+    <item>
+      <title>Adaptive Temporal Antialiasing With RTX OFF</title>
+      <link>https://ThisIsTian.github.io/post/adaptive-temporal-antialiasing-with-rtx-off/</link>
+      <pubDate>Sun, 06 Jan 2019 00:05:14 -0800</pubDate>
+      <author>xtiant1@gmail.com (Tiantian Xie)</author>
+      <guid>https://ThisIsTian.github.io/post/adaptive-temporal-antialiasing-with-rtx-off/</guid>
+      <description>Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when I move the camera. However, it was fine to me as I only took static screenshots at that moment. Anyhow, it got my attention. So, for my course project for graphics for game instructed by Dr. Marc Olano, I tried to implement adaptive temporal antialiasing (ATAA) in UE4 on my Mac to mitigate this problem.</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>https://ThisIsTian.github.io/page/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>xtiant1@gmail.com (Tiantian Xie)</author>
+      <guid>https://ThisIsTian.github.io/page/about/</guid>
+      <description>My name is Tiantian, a Ph.D. student who are interested in Real-time rendering, Game and Machine/Deep Learning. If you are interested in the posts, feel free to contact me on LinkedIn or Twitter.</description>
+    </item>
+    
+  </channel>
+</rss>
