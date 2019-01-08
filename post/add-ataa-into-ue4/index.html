@@ -10,11 +10,11 @@
   <title>Post 1: Add ATAA Into UE4 - Titan de Tian</title>
   <meta property="og:title" content="Post 1: Add ATAA Into UE4" />
   <meta name="twitter:title" content="Post 1: Add ATAA Into UE4" />
-  <meta name="description" content="The original paper adaptive temporal antialiasing by Adam Marrs described how ATAA can be implemented in a summary. Yet it did not reveal too much technique details for each step in UE4. In this post, I focus on the technique and problem I came across when adding ATAA to UE4 in my course project without RTX.
-Segmentation The first step to implement ATAA is to classify pixel types and record history information.">
-  <meta property="og:description" content="The original paper adaptive temporal antialiasing by Adam Marrs described how ATAA can be implemented in a summary. Yet it did not reveal too much technique details for each step in UE4. In this post, I focus on the technique and problem I came across when adding ATAA to UE4 in my course project without RTX.
-Segmentation The first step to implement ATAA is to classify pixel types and record history information.">
-  <meta name="twitter:description" content="The original paper adaptive temporal antialiasing by Adam Marrs described how ATAA can be implemented in a summary. Yet it did not reveal too much technique details for each step in UE4. In this post, …">
+  <meta name="description" content="The original paper adaptive temporal antialiasing by Adam Marrs et al. introduced how ATAA can be implemented with RTX in a summary. In this post, the focus is on the technique and problem I came across when adding ATAA to UE4 in course project without RTX.
+Segmentation The first step to implement ATAA is to classify pixel types and record history information. In the paper, the pixel types include: FXAA, TAA, ATAA.">
+  <meta property="og:description" content="The original paper adaptive temporal antialiasing by Adam Marrs et al. introduced how ATAA can be implemented with RTX in a summary. In this post, the focus is on the technique and problem I came across when adding ATAA to UE4 in course project without RTX.
+Segmentation The first step to implement ATAA is to classify pixel types and record history information. In the paper, the pixel types include: FXAA, TAA, ATAA.">
+  <meta name="twitter:description" content="The original paper adaptive temporal antialiasing by Adam Marrs et al. introduced how ATAA can be implemented with RTX in a summary. In this post, the focus is on the technique and problem I came …">
   <meta name="author" content="Tiantian Xie"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -63,10 +63,10 @@ Segmentation The first step to implement ATAA is to classify pixel types and rec
     "name" : "Tiantian Xie"
   },
   "headline": "Post 1: Add ATAA Into UE4",
-  "description" : "The original paper adaptive temporal antialiasing by Adam Marrs described how ATAA can be implemented in a summary. Yet it did not reveal too much technique details for each step in UE4. In this post, I focus on the technique and problem I came across when adding ATAA to UE4 in my course project without RTX.
-Segmentation The first step to implement ATAA is to classify pixel types and record history information.",
+  "description" : "The original paper adaptive temporal antialiasing by Adam Marrs et al. introduced how ATAA can be implemented with RTX in a summary. In this post, the focus is on the technique and problem I came across when adding ATAA to UE4 in course project without RTX.
+Segmentation The first step to implement ATAA is to classify pixel types and record history information. In the paper, the pixel types include: FXAA, TAA, ATAA.",
   "inLanguage" : "en",
-  "wordCount": 3569,
+  "wordCount": 3576,
   "datePublished" : "2019-01-06T08:45:22",
   "dateModified" : "2019-01-06T08:45:22",
   "image" : "https://ThisIsTian.github.io/favicon.ico",
@@ -86,14 +86,14 @@ Segmentation The first step to implement ATAA is to classify pixel types and rec
 </script>
 
 <meta property="og:title" content="Post 1: Add ATAA Into UE4" />
-<meta property="og:description" content="The original paper adaptive temporal antialiasing by Adam Marrs described how ATAA can be implemented in a summary. Yet it did not reveal too much technique details for each step in UE4. In this post, I focus on the technique and problem I came across when adding ATAA to UE4 in my course project without RTX.
-Segmentation The first step to implement ATAA is to classify pixel types and record history information.">
+<meta property="og:description" content="The original paper adaptive temporal antialiasing by Adam Marrs et al. introduced how ATAA can be implemented with RTX in a summary. In this post, the focus is on the technique and problem I came across when adding ATAA to UE4 in course project without RTX.
+Segmentation The first step to implement ATAA is to classify pixel types and record history information. In the paper, the pixel types include: FXAA, TAA, ATAA.">
 <meta property="og:image" content="https://ThisIsTian.github.io/favicon.ico" />
 <meta property="og:url" content="https://ThisIsTian.github.io/post/add-ataa-into-ue4/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Titan de Tian" />
   <meta name="twitter:title" content="Post 1: Add ATAA Into UE4" />
-  <meta name="twitter:description" content="The original paper adaptive temporal antialiasing by Adam Marrs described how ATAA can be implemented in a summary. Yet it did not reveal too much technique details for each step in UE4. In this post, …">
+  <meta name="twitter:description" content="The original paper adaptive temporal antialiasing by Adam Marrs et al. introduced how ATAA can be implemented with RTX in a summary. In this post, the focus is on the technique and problem I came …">
   <meta name="twitter:image" content="https://ThisIsTian.github.io/favicon.ico" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@ThisIsTian" />
@@ -322,13 +322,13 @@ Segmentation The first step to implement ATAA is to classify pixel types and rec
       <article role="main" class="blog-post">
         
 
-<p>The original paper <em>adaptive temporal antialiasing</em> by Adam Marrs described how ATAA can be implemented in a summary. Yet it did not reveal too much technique details for each step in UE4. In this post, I focus on the technique and problem I came across when adding ATAA to UE4 in my course project without RTX.</p>
+<p>The original paper <em>adaptive temporal antialiasing</em> by Adam Marrs et al. introduced how ATAA can be implemented with RTX in a summary. In this post, the focus is on the technique and problem I came across when adding ATAA to UE4 in course project without RTX.</p>
 
 <h2 id="segmentation">Segmentation</h2>
 
-<p>The first step to implement ATAA is to classify pixel types and record history information. In the paper, the pixel types include: FXAA, TAA, ATAA. The relevant information is a ray tracing counter to avoid jittering if a pixel switches between TAA and ATAA frequently. I used one render target to record them in R and G channels, respectively. Besides, I also recorded a TAA artifact level (TAL) in B channel, which is the sum of luminance variance and the gradient magnitude of $3 \times 3$ Solel filter of depth texture. The higher this value is, the more artifacts TAA might produce. I stored this value for debugging and TAL visualization.</p>
+<p>The first step to implement ATAA is to classify pixel types and record history information. In the paper, the pixel types include: FXAA, TAA, ATAA. The relevant information is a tracing counter to avoid jittering if a pixel switches between TAA and ATAA frequently. One render target was used to record them in R and G channels, respectively. Channel B records the luminance variance. Besides, I also recorded a TAA artifact level (TAL) in channel A, which is the sum of luminance variance and the gradient magnitude of $3 \times 3$ Solel filter of depth texture. The higher this value is, the more artifacts TAA might produce. This value is stored for debugging and TAL visualization.</p>
 
-<p>There are two interesting problem I have encountered to generate the segmentation texture.</p>
+<p>There are two interesting problems encountered in the way to generate the segmentation texture.</p>
 
 <ul>
 <li><strong>How to pass the segmentation texture between frames</strong>. We can add the render target into any place that survives between frames. But a clean code is preferred in a large code base like UE4. Since segmentation texture can be updated in <code>PostProcessTemporalAA</code>, we can make use of how UE4 passes TAA history between frames to achieve this. After exploring the code base, I found <code>TemporalAAHistory</code> could serve this purpose. The lifecycle is shown in image a) as below:</li>
@@ -385,7 +385,7 @@ where $\mu_n $ and $\sigma^2_n$ are the current exponential moving average and v
 </tbody>
 </table>
 
-<p>The pseudo algorithm I used is as below:</p>
+<p>The pseudo algorithm used in the project is as below:</p>
 
 <pre><code class="language-C++">0     //Assume that P holds all the property of the current pixel.
 1     if(PreviousOccluded(P.Position,P.Motion))
@@ -398,14 +398,14 @@ where $\mu_n $ and $\sigma^2_n$ are the current exponential moving average and v
 8     if(SignificatMotion(P.Motion))
 9     {
 10        P.ClassificationHistory.Method = FXAA;
-11        P.Classificationhistory.RaytracingCount = 0;
+11        P.Classificationhistory.TracingCount = 0;
 12        return;
 13    }
 14
-15    //Whether the curent pixel has recently been raytraced.
+15    //Whether the curent pixel has recently been traced.
 16    //It reduces flickering due to rapid shifts with motion.
 17    if(P.ClassificationHistory.Method == ATAA &amp;&amp;
-18        P.ClassificationHistory.RaytracingCount--&gt;0)
+18        P.ClassificationHistory.TracingCount--&gt;0)
 19    {
 20        return;// because the method is ATAA
 21    }
@@ -416,7 +416,7 @@ where $\mu_n $ and $\sigma^2_n$ are the current exponential moving average and v
 26    if(TemporalLumiVar+DepthMagnitude&gt;Threashold)
 27    {
 28        P.ClassificationHistory.Method = ATAA;
-29        P.ClassificationHistory.RaytracingCount = ConstRaytracingCount;
+29        P.ClassificationHistory.TracingCount = ConstTracingCount;
 30    }
 31    else
 32    {
@@ -424,11 +424,11 @@ where $\mu_n $ and $\sigma^2_n$ are the current exponential moving average and v
 34    }
 </code></pre>
 
-<p>A special note is that if there is a significant motion for a certain pixel, we will need to reset the method. If there is a significant motion, I would assume that the quality of the pixel is not important. Therefore, an early termination is triggered at line 12 (If the quality of significant motion is also important, line 12 can be removed).</p>
+<p>A special note is that if there is a significant motion for a certain pixel, we will need to reset the method. If there is a significant motion, I would assume that the quality of the pixel is not important. Therefore, an early termination is triggered at line 12 to use FXAA (If the quality of significant motion is also important, line 12 can be removed).</p>
 
 <h2 id="sparse-path-tracing">Sparse Path Tracing</h2>
 
-<p>Instead of ray tracing with RTX as described in the original paper, I created a path tracer with compute shader to replace samples with high TAL. Because path tracing would reveal more dynamic details. The main challenge here is to have the same rendering result for both rendering pipeline: path tracing and rasterization based shading in UE4. Otherwise, the ATAA step itself will bring mismatch artifacts as shown below.</p>
+<p>Instead of ray tracing with RTX as described in the original paper, a path tracer was created with compute shader to replace samples with high TAL. Because path tracing would reveal more dynamic details. The main challenge here is to have the same rendering result for both rendering pipeline: path tracing and rasterization based shading in UE4. Otherwise, the ATAA step itself will bring mismatch artifacts as shown below.</p>
 
 <table>
 <thead>
@@ -454,13 +454,13 @@ where $\mu_n $ and $\sigma^2_n$ are the current exponential moving average and v
 
 <p><strong>Implementation</strong>:  On each pixel that has high TAL value, a camera ray is initialized in the normalized device space (NDS) with a <em>sub-pixel sampling</em> pattern (i.e., Random, and Sobol) and then transformed into the world space. Starting from the first interaction with the scene object, it incrementally samples path vertex by multi-importance sampling (MIS) of light and the BRDF at the current vertex and tracing a new ray to the next vertex until max bounce or termination by Russian roulette. If any ray has early termination, it will immediately fire another camera ray. At last, the results are averaged for each pixel.</p>
 
-<p>I did not go for more advanced path tracing method like Bidirectional or Photon mapping. If you are familiar with the basic techniques, just ignore the following sections and jump to <a href="#postprocess-modification">postprocess modification</a> where I show the modification to add ATAA to the post process in UE4.</p>
+<p>I did not go for more advanced path tracing method like Bidirectional or Photon mapping. If you are familiar with the basic techniques, just ignore the following sections and jump to <a href="#postprocess-modification">postprocess modification</a> where the modification to add ATAA to the post process in UE4 is described.</p>
 
 <h3 id="sub-pixel-sampling">Sub-pixel sampling</h3>
 
 <p>The purpose for sub-pixel sampling in rendering is to reduce visual impact of aliasing artifacts. Aliasing artifacts are introduced when sampling frequency is lower than twice the max frequency present in the signal based on <a href="https://en.wikipedia.org/wiki/Nyquist–Shannon_sampling_theorem">Nyquist-Shannon sampling theorem</a>. Those artifacts are the low frequencies leaked by high frequency signals (Interestingly, if we have a well-tuned high frequency image, we can see a different image if we are filming it with a camera that has an imperfect low pass filter).</p>
 
-<p>Sub-pixel sampling can change the sampling pattern from uniform to nonuniform. Nonuniform sampling turns artifact pattern into random noise, thus reduces the visual impacts to our eye. However, we only need one sample per pixel for final output. To achieve this, I filtered out the high frequency in the pixel region using Monte Carlo with a box filter kernel, which ends up as:
+<p>Sub-pixel sampling can change the sampling pattern from uniform to nonuniform. Nonuniform sampling turns artifact pattern into random noise, thus reduces the visual impacts to our eye. However, we only need one sample per pixel for final output. To achieve this, the high frequency was filtered out in the pixel region using Monte Carlo with a box filter kernel, which ends up as:
 $$
 f(x,y)_{filtered}=\frac{1}{N}\sum_{i=1}\frac{f(x_i,y_i)}{p(x_i,y_i)}
 $$
@@ -488,7 +488,7 @@ with Sobol sequence as it will introduce known patterns. The edge is more smooth
 </tbody>
 </table>
 
-<p>However, sampling is not an end story here. Since we have limited sampling budgets for each pixel in real-time rendering, blue noise is a better method according to the <a href="https://cs.dartmouth.edu/wjarosz/publications/subr16fourier.html">frequency analysis</a> course in SIGGRAPH Course 16&rsquo;. In short, a homogeneous sampling strategy which has less spectral energy concentration on low frequency introduces less error for real-time rendering where we do not have enough samples. Blue noise sampler meets this requirement. So, I chose it for BRDF sampling described in the next section.</p>
+<p>However, sampling is not an end story here. Since we have limited sampling budgets for each pixel in real-time rendering, blue noise is a better method according to the <a href="https://cs.dartmouth.edu/wjarosz/publications/subr16fourier.html">frequency analysis</a> course in SIGGRAPH Course 16&rsquo;. In short, a homogeneous sampling strategy which has less spectral energy concentration on low frequency introduces less error for real-time rendering where we do not have enough samples. Blue noise sampler meets this requirement. So, it was chosen for BRDF sampling described in the next section.</p>
 
 <h3 id="brdf-sampling-with-limited-budget">BRDF sampling with limited budget</h3>
 
@@ -509,7 +509,7 @@ Pixal&rsquo;s <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/cgf.13472
 
 <p><strong>Blue noise on unit sphere</strong>: To generate sample points on unit sphere, I chose the algorithm to generate points with best blue noise
 property offline and then upload an LUT to use in the shader. Mitchell&rsquo;s best candidate algorithm was selected because the closest neighbor
-points have the largest distance based on Pixal&rsquo;s EGSR paper. Moreover, it was generated progressively, I can configure the number of sampling points to use in the shader with only one LUT. Although SIGGRAPH Course 2016 suggested CCVT (Capacity constrained Voronoi Tessellation) as it has the best convergence rate, I did not use it given the time limitation. The basic idea of Mitchell&rsquo;s best candidate algorithm is that at each iteration keep the random generated candidate that is furthest to the closest points already selected in previous iterations . A special note for using this algorithm on unit sphere, instead of using Euclidean distance, the <a href="https://en.wikipedia.org/wiki/Great-circle_distance">Great-circle distance</a> should be used to calculate the closest distance between two points on the sphere. The vector version which is handy is listed here:</p>
+points have the largest distance based on Pixal&rsquo;s EGSR paper. Moreover, it was generated progressively. The number of sampling points can be configured in the shader with only one LUT. Although SIGGRAPH Course 2016 suggested CCVT (Capacity constrained Voronoi Tessellation) as it has the best convergence rate, it was not used given the time limitation. The basic idea of Mitchell&rsquo;s best candidate algorithm is that at each iteration keep the random generated candidate that is furthest to the closest points already selected in previous iterations . A special note for using this algorithm on sphere, instead of using Euclidean distance, the <a href="https://en.wikipedia.org/wiki/Great-circle_distance">Great-circle distance</a> should be used to calculate the closest distance between two points on the sphere. The vector version which is handy is listed here:</p>
 
 <p>$$
 d=arctan(\frac{|\mathbf{p}_1 \times \mathbf{p}_2|}{\mathbf{p_1}\cdot\mathbf{p}_2})
@@ -639,7 +639,7 @@ create lighting contribution. The final result is shown in image d). We can free
 <ul>
 <li><strong><code>Offscreen</code></strong> to indicate if there is no history. This pixel will use FXAA to denoise.</li>
 <li><strong><code>Velocity</code></strong> to de-noise fast moving pixels with FXAA.</li>
-<li><strong><code>ClassificationHistory</code></strong> from the last history render target, where the <code>z</code> component is the updated EMV value.</li>
+<li><strong><code>ClassificationHistory</code></strong> from the last history render target, where the <code>z</code> component is the updated EMV value. <code>w</code> is the TAL value.</li>
 <li><strong><code>DepthMagSobol</code></strong> to indicate the depth neighbor variance of the pixel.</li>
 </ul>
 
@@ -648,7 +648,7 @@ create lighting contribution. The final result is shown in image d). We can free
 <p>2). <strong>Sparse path tracing</strong>. I duplicated the <code>FRCPassPostProcessDownsample</code> class as <code>FRCPassPostProcessSparsePathTracing</code> and registered it to the PostProcess graph after Bokeh pass, because it has compute shader templates, which is quite helpful for the implementation of the sparse path tracing. Then the path tracer mentioned above is implemented and traces pixels that only has high TAL. This post <a href="https://medium.com/@jcowles/gpu-ray-tracing-in-one-weekend-3e7d874b3b0f">GPU Ray Tracing in One Weekend</a> helps a lot for the implementation. However, there are three problems that I have run into:</p>
 
 <ul>
-<li><p>I did not previously know that <strong><em>all view uniform variables are not accessible in Compute Shader by default</em></strong> even after setting the view uniform for the global shader. We need to add codes to support them. I spent a lot of time to find it out.</p></li>
+<li><p>I did not previously know that <strong><em>all view uniform variables are not accessible in Compute Shader by default</em></strong> even after setting the view uniform for the global shader. We need to add codes to support them. A lot of time was spent to find it out.</p></li>
 
 <li><p>Since we need to generate the camera ray, we need to remove the TAA dithering when obtaining the inverse view matrix. In UE4, all related matrix is managed in <code>ViewMatrices</code>. You can either get it there or set the dithering entries to zero.</p></li>
 
@@ -657,15 +657,15 @@ create lighting contribution. The final result is shown in image d). We can free
 
 <p>3). <strong>Combine</strong>. Now that we have the sparsely traced pixel colors, we can combine it with the original TAA pixels. To achieve this, I add an <code>ATAACombine</code> pass to combine TAA and Sparse path tracing result just before <code>Tonemaping</code>. The reason to do it before this pass is that all color operation is in linear RGB space and passes after this point will be converted to sRGB space that considers human vision characteristics.</p>
 
-<p>What I did in this pass is to directly replace the original pixel marked as ATAA with the corresponding tracing color.</p>
+<p>In this pass, the original pixel marked as ATAA is directly replaced by the corresponding path tracing color.</p>
 
-<p>4). <strong>FXAA</strong>. The last modification is to modify the FXAA pass, where we can directly apply FXAA to pixels where the pixel is marked as FXAA in the segmentation image. Because we have already combined ATAA and TAA image, and those pixels from TAA  samples directly from the texture passed into TAA pass.</p>
+<p>4). <strong>FXAA</strong>. The last modification is to modify the FXAA pass. We can directly apply FXAA to the pixel where it is marked as FXAA in the segmentation image. Because we have already combined ATAA and TAA image, and those pixels from TAA are sampled from the texture passed into TAA pass directly.</p>
 
 <h2 id="future-work">Future Work</h2>
 
-<p><strong>Support volume objects</strong>. In this post, the supported material is only lambertian. To add volume objects that have the same behavior of UE4 can not be directly achieved by path tracing a volume. Because that will not have the same rendering result. Moreover, custom volume objects in UE4 does not have shadow, we need to ignore the volume objects that is hit after hitting an opaque surface in the tracer. At last, we need to correctly combine the volume objects that are transparent (I have added volume objects support in the next post).</p>
+<p><strong>Support volume objects</strong>. In this post, the supported material is only lambertian. To add volume objects that have the same behavior of UE4 can not be directly achieved by path tracing a volume. Because that will not have the same rendering result. Moreover, custom volume objects in UE4 does not have shadow, we need to ignore the volume objects that is hit after hitting an opaque surface in the tracer. At last, we need to correctly combine the volume objects that are transparent (The volume objects support is added in the next post).</p>
 
-<p><strong>Correct global illuminance</strong>. If you observe the rendering result closely, the color has some mismatch, especially the shadow region that only relies on global illuminance. I used the sky irradiance modeled by Order 3 Spherical Harmonics in UE4 for this purpose. It is more complex than I thought.</p>
+<p><strong>Correct global illuminance</strong>. If you observe the rendering result closely, the color has some mismatch, especially the shadow region that only relies on global illuminance. The sky irradiance modeled by Order 3 Spherical Harmonics in UE4 was used for this purpose. However, it is more complex than I thought.</p>
 
 <p><strong>Divergence</strong>. Up till now,  the sparse tracing is not well optimized. For each (8,8,1) thread group. The ATAA flag is test for each pixel.
 If only one pixel has high TAL, the other 63 threads are wasted waiting. Although the performance now is not bad,
@@ -678,11 +678,11 @@ to few material type, like volume objects only.</p>
 
 <h2 id="helpful-tips-on-mac">Helpful tips on Mac</h2>
 
-<p>Since I am working on macOS, I do not have the access to the great tool <a href="https://renderdoc.org">RenderDoc</a>. If only it is already supported on Mac. So I goes for two basic tools to use (Hopefully there are better tools existing):</p>
+<p>Since the only working platform is macOS, I do not have the access to the great tool <a href="https://renderdoc.org">RenderDoc</a>. If only it is already supported on Mac. So, two basic tools were used (Hopefully there are better tools existing):</p>
 
 <ol>
 <li><em>Digital color meter</em> on mac for debugging color output in sRGB space.</li>
-<li>Create unit test case to test the alignment of structures on CPU and GPU for <code>RWBufferStructured</code> in shader. Otherwise, I was unable to align them.</li>
+<li>Create unit test case to test the alignment of structures on CPU and GPU for <code>RWBufferStructured</code> in shader. Otherwise, it was hard to align them, because my structure field was not 16 bytes aligned.</li>
 </ol>
 
 
