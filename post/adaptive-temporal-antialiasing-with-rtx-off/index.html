@@ -63,7 +63,7 @@
   "headline": "Adaptive Temporal Antialiasing With RTX OFF",
   "description" : "Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when the camera moved. However, it was fine at that time because only static screenshots were needed. Anyhow, it got my attention. So, for the course project for graphics for game instructed by Dr. Marc Olano, I tried to implement adaptive temporal antialiasing (ATAA) in UE4 on my Mac to mitigate this problem.",
   "inLanguage" : "en",
-  "wordCount": 471,
+  "wordCount": 470,
   "datePublished" : "2019-01-06T00:05:14",
   "dateModified" : "2019-01-06T00:05:14",
   "image" : "https://ThisIsTian.github.io/favicon.ico",
@@ -339,7 +339,7 @@ graphics card nor can I switch to Windows due to disk space limit, so compute sh
 
 <li><p><strong>Path tracing instead of ray tracing</strong>. Unlike the ray tracing in the original papar that includes 1 shadow ray per light per primary ray, the scene in this implementation is rendered with path tracing, because I want the rendering as physically-based as possible. Second, I am interested in to what degree UE4 rendering matches Physically-based rendering (PBR) out of curiosity. My bad.</p></li>
 
-<li><p><strong>New moving volumetric rendering example</strong>. This implementation makes ATAA support volumetric objects in motion, which was not demonstrated in the original paper. To convince you that this post series is at least somewhat helpful, I created the moving `face` demo below to show how how ATAA compares to <code>TAA</code> and <code>TAA with Responsive AA</code> for volumetric objects. Just hope that my two cents are somewhat helpful.</p></li>
+<li><p><strong>New moving volumetric rendering example</strong>. This implementation makes ATAA support volumetric objects in motion, which was not demonstrated in the original paper. To convince you that this post series is at least somewhat helpful, I created the moving `face` demo below to show how ATAA compares to <code>TAA</code> and <code>TAA with Responsive AA</code> for volumetric objects. Just hope that my two cents are somewhat helpful.</p></li>
 </ul>
 
 <table>
