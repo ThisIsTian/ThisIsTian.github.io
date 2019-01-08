@@ -10,9 +10,9 @@
   <title>Adaptive Temporal Antialiasing With RTX OFF - Titan de Tian</title>
   <meta property="og:title" content="Adaptive Temporal Antialiasing With RTX OFF" />
   <meta name="twitter:title" content="Adaptive Temporal Antialiasing With RTX OFF" />
-  <meta name="description" content="Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when I move the camera. However, it was fine to me as I only took static screenshots at that moment. Anyhow, it got my attention. So, for my course project for graphics for game instructed by Dr. Marc Olano, I tried to implement adaptive temporal antialiasing (ATAA) in UE4 on my Mac to mitigate this problem.">
-  <meta property="og:description" content="Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when I move the camera. However, it was fine to me as I only took static screenshots at that moment. Anyhow, it got my attention. So, for my course project for graphics for game instructed by Dr. Marc Olano, I tried to implement adaptive temporal antialiasing (ATAA) in UE4 on my Mac to mitigate this problem.">
-  <meta name="twitter:description" content="Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when I move the camera. However, it was fine to me as I only took static …">
+  <meta name="description" content="Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when the camera moved. However, it was fine at that time because only static screenshots were needed. Anyhow, it got my attention. So, for the course project for graphics for game instructed by Dr. Marc Olano, I tried to implement adaptive temporal antialiasing (ATAA) in UE4 on my Mac to mitigate this problem.">
+  <meta property="og:description" content="Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when the camera moved. However, it was fine at that time because only static screenshots were needed. Anyhow, it got my attention. So, for the course project for graphics for game instructed by Dr. Marc Olano, I tried to implement adaptive temporal antialiasing (ATAA) in UE4 on my Mac to mitigate this problem.">
+  <meta name="twitter:description" content="Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when the camera moved. However, it was fine at that time because only static …">
   <meta name="author" content="Tiantian Xie"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -61,9 +61,9 @@
     "name" : "Tiantian Xie"
   },
   "headline": "Adaptive Temporal Antialiasing With RTX OFF",
-  "description" : "Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when I move the camera. However, it was fine to me as I only took static screenshots at that moment. Anyhow, it got my attention. So, for my course project for graphics for game instructed by Dr. Marc Olano, I tried to implement adaptive temporal antialiasing (ATAA) in UE4 on my Mac to mitigate this problem.",
+  "description" : "Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when the camera moved. However, it was fine at that time because only static screenshots were needed. Anyhow, it got my attention. So, for the course project for graphics for game instructed by Dr. Marc Olano, I tried to implement adaptive temporal antialiasing (ATAA) in UE4 on my Mac to mitigate this problem.",
   "inLanguage" : "en",
-  "wordCount": 239,
+  "wordCount": 471,
   "datePublished" : "2019-01-06T00:05:14",
   "dateModified" : "2019-01-06T00:05:14",
   "image" : "https://ThisIsTian.github.io/favicon.ico",
@@ -83,13 +83,13 @@
 </script>
 
 <meta property="og:title" content="Adaptive Temporal Antialiasing With RTX OFF" />
-<meta property="og:description" content="Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when I move the camera. However, it was fine to me as I only took static screenshots at that moment. Anyhow, it got my attention. So, for my course project for graphics for game instructed by Dr. Marc Olano, I tried to implement adaptive temporal antialiasing (ATAA) in UE4 on my Mac to mitigate this problem.">
+<meta property="og:description" content="Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when the camera moved. However, it was fine at that time because only static screenshots were needed. Anyhow, it got my attention. So, for the course project for graphics for game instructed by Dr. Marc Olano, I tried to implement adaptive temporal antialiasing (ATAA) in UE4 on my Mac to mitigate this problem.">
 <meta property="og:image" content="https://ThisIsTian.github.io/favicon.ico" />
 <meta property="og:url" content="https://ThisIsTian.github.io/post/adaptive-temporal-antialiasing-with-rtx-off/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Titan de Tian" />
   <meta name="twitter:title" content="Adaptive Temporal Antialiasing With RTX OFF" />
-  <meta name="twitter:description" content="Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when I move the camera. However, it was fine to me as I only took static …">
+  <meta name="twitter:description" content="Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when the camera moved. However, it was fine at that time because only static …">
   <meta name="twitter:image" content="https://ThisIsTian.github.io/favicon.ico" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@ThisIsTian" />
@@ -325,16 +325,22 @@
 
 <h1 id="introduction">Introduction</h1>
 
-<p>TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when I move the camera.
-However, it was fine to me as I only took static screenshots at that moment. Anyhow, it got my attention. So, for my course project
+<p>TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when the camera moved.
+However, it was fine at that time because only static screenshots were needed. Anyhow, it got my attention. So, for the course project
 for <a href="https://www.csee.umbc.edu/~olano/class/491-18-8/"><em>graphics for game</em></a> instructed by Dr. Marc Olano, I tried to implement
-<em>adaptive temporal antialiasing (ATAA)</em> in UE4 on my Mac to mitigate this problem. I did not have the access to an RTX
-graphics card nor can I switch to Windows due to disk memory limit, so I used compute shaders instead. The good part is even an integrated
-graphics card without DXR can turn ATAA on. I was able to run my demo scene on Intel® Iris™ Plus Graphics 650 with around
-20~60 fps based on scene TAA artifacts level with my ill-performed code.</p>
+<em>adaptive temporal antialiasing (ATAA)</em> in UE4 on my Mac to mitigate this problem. If you are interested in the technique and want to refresh the background knowledge, please visit the <a href="https://research.nvidia.com/publication/2018-08_Adaptive-Temporal-Antialiasing">original paper website</a> from NVIDIA. The paper is published at HPG 2018. All credit goes to the original authors.</p>
 
-<p>To make sure this post series is at least somewhat helpful, I put the demo below to show my ATAA result when compared to both <code>TAA</code>
-and <code>TAA with Responsive AA</code> in UE4. Just hope that my two cents are somewhat helpful.</p>
+<p>This implementation differs from the original paper mainly in the following three ways:</p>
+
+<ul>
+<li><p><strong>API and platform agnostic</strong>. Unlike those mentioned in the original paper, this implementation does not require RTX API nor Windows. It is tested on Mac and should be able to run on other platforms supported by UE4. The reason is simple, I did not have the access to an RTX
+graphics card nor can I switch to Windows due to disk space limit, so compute shaders was used instead. The demo scene was able to run on Intel® Iris™ Plus Graphics 650 on Macbook Pro 2017 with around
+20~60 fps based on scene TAA artifacts level with un-optimized code. And an amortized rays of 7.1G Rays/s on external GTX 1080 (327M Rays/s for full screen tracing) was achieved.</p></li>
+
+<li><p><strong>Path tracing instead of ray tracing</strong>. Unlike the ray tracing in the original papar that includes 1 shadow ray per light per primary ray, the scene in this implementation is rendered with path tracing, because I want the rendering as physically-based as possible. Second, I am interested in to what degree UE4 rendering matches Physically-based rendering (PBR) out of curiosity. My bad.</p></li>
+
+<li><p><strong>New moving volumetric rendering example</strong>. This implementation makes ATAA support volumetric objects in motion, which was not demonstrated in the original paper. To convince you that this post series is at least somewhat helpful, I created the moving `face` demo below to show how how ATAA compares to <code>TAA</code> and <code>TAA with Responsive AA</code> for volumetric objects. Just hope that my two cents are somewhat helpful.</p></li>
+</ul>
 
 <table>
 <thead>
@@ -345,10 +351,14 @@ and <code>TAA with Responsive AA</code> in UE4. Just hope that my two cents are 
 
 <tbody>
 <tr>
-<td align="center">Figure 1: ATAA compared to TAA in UE4 for volumetric objects.</td>
+<td align="center">Figure 1: <strong>Which face is not blurry</strong>? ATAA compared to TAA in UE4 for volumetric objects.</td>
 </tr>
 </tbody>
 </table>
+
+<h1 id="posts">Posts</h1>
+
+<p>Below are the posts in series. Due to course time limit, I finished the first two posts.</p>
 
 <p><strong>Post 1</strong>. <a href="https://ThisIsTian.github.io/post/add-ataa-into-ue4/">How to add ATAA into UE4.</a></p>
 
@@ -359,6 +369,8 @@ and <code>TAA with Responsive AA</code> in UE4. Just hope that my two cents are 
 <p><strong>Post 4</strong>. Add specular material (GGX) support (TODO).</p>
 
 <p><strong>Post 5</strong>. Boost the performance of Path tracing (TODO).</p>
+
+<p>If you find this post series good or bad, please leave comments or DM me in Gmail or Twitter (@ThisIsTian). I would very much appraciate your time and efforts .</p>
 
 
         
