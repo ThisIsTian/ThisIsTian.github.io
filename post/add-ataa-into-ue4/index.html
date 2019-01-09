@@ -66,7 +66,7 @@ Segmentation The first step to implement ATAA is to classify pixel types and rec
   "description" : "The original paper adaptive temporal antialiasing by Adam Marrs et al. introduced how ATAA can be implemented with RTX in a summary. In this post, the focus is on the technique and problems I came across when adding ATAA to UE4 in a course project without RTX.
 Segmentation The first step to implement ATAA is to classify pixel types and record history information. In the paper, the pixel types include: FXAA, TAA, ATAA.",
   "inLanguage" : "en",
-  "wordCount": 3608,
+  "wordCount": 3607,
   "datePublished" : "2019-01-06T08:45:22",
   "dateModified" : "2019-01-06T08:45:22",
   "image" : "https://ThisIsTian.github.io/favicon.ico",
@@ -465,7 +465,7 @@ $$
 f(x,y)_{filtered}=\sum_{i=1}^{N}\frac{\mathcal{F}(x_i,y_i)\cdot f(x_i,y_i)}{p(x_i,y_i)}
 $$
 where $f(x_i,y_i)$ is the sample result we get after path tracing at $(x_i,y_i)$. $p(x_i,y_i)$ is the probability density function
-that this coordinate is sampled. $\mathcal{F}(x_i,y_i) = \frac{1}{N}$ if a box filter is applied. However, to achieve a higher filtering quality, other low pass 2D filters can be applied (e.g., 2D Gaussian filter). If we further assume that the sampling is uniform, we have $p(x_i,y_i)=1$, which enables us to sample
+that this coordinate is sampled. $\mathcal{F}(x_i,y_i) = \frac{1}{N}$ if a box filter is applied. However, to achieve higher filtering quality, other low pass 2D filters can be applied (e.g., 2D Gaussian filter). If we further assume that the sampling is uniform, we have $p(x_i,y_i)=1$, which enables us to sample
 the filtered pixel as a weighted sum of all samples inside the pixel region.</p>
 
 <p><strong>Result</strong>:
