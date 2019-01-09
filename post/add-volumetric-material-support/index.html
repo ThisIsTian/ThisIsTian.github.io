@@ -10,9 +10,9 @@
   <title>Post 2: Add Volumetric Material Support - Titan de Tian</title>
   <meta property="og:title" content="Post 2: Add Volumetric Material Support" />
   <meta name="twitter:title" content="Post 2: Add Volumetric Material Support" />
-  <meta name="description" content="Introduction Volume object is a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.">
-  <meta property="og:description" content="Introduction Volume object is a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.">
-  <meta name="twitter:description" content="Introduction Volume object is a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object …">
+  <meta name="description" content="Introduction Volume objects are a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.">
+  <meta property="og:description" content="Introduction Volume objects are a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.">
+  <meta name="twitter:description" content="Introduction Volume objects are a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object …">
   <meta name="author" content="Tiantian Xie"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -61,9 +61,9 @@
     "name" : "Tiantian Xie"
   },
   "headline": "Post 2: Add Volumetric Material Support",
-  "description" : "Introduction Volume object is a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.",
+  "description" : "Introduction Volume objects are a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.",
   "inLanguage" : "en",
-  "wordCount": 1502,
+  "wordCount": 1503,
   "datePublished" : "2019-01-06T08:48:15",
   "dateModified" : "2019-01-06T08:48:15",
   "image" : "https://ThisIsTian.github.io/favicon.ico",
@@ -83,13 +83,13 @@
 </script>
 
 <meta property="og:title" content="Post 2: Add Volumetric Material Support" />
-<meta property="og:description" content="Introduction Volume object is a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.">
+<meta property="og:description" content="Introduction Volume objects are a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.">
 <meta property="og:image" content="https://ThisIsTian.github.io/favicon.ico" />
 <meta property="og:url" content="https://ThisIsTian.github.io/post/add-volumetric-material-support/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Titan de Tian" />
   <meta name="twitter:title" content="Post 2: Add Volumetric Material Support" />
-  <meta name="twitter:description" content="Introduction Volume object is a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object …">
+  <meta name="twitter:description" content="Introduction Volume objects are a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object …">
   <meta name="twitter:image" content="https://ThisIsTian.github.io/favicon.ico" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@ThisIsTian" />
@@ -144,7 +144,7 @@
               <a class="navlinks-parent">Projects</a>
               <div class="navlinks-children">
                 
-                  <a href="https://ThisIsTian.github.io/post/adaptive-temporal-antialiasing-with-rtx-off">ATAA</a>
+                  <a href="https://ThisIsTian.github.io/post/adaptive-temporal-antialiasing-without-rtx">ATAA</a>
                 
               </div>
             </li>
@@ -320,7 +320,7 @@
 
 <h2 id="introduction">Introduction</h2>
 
-<p>Volume object is a good fit for ATAA, because high luminance variance can be introduced by <strong>1)</strong> randomization of ray marching start position to mitigate slicing effect, and <strong>2)</strong> object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.</p>
+<p>Volume objects are a good fit for ATAA, because high luminance variance can be introduced by <strong>1)</strong> randomization of ray marching start position to mitigate slicing effect, and <strong>2)</strong> object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.</p>
 
 <h2 id="custom-volumetric-material-in-ue4">Custom volumetric material in UE4</h2>
 
@@ -400,7 +400,7 @@ return Color;
 <ol>
 <li><p><strong>How to trace the volumetric object UE4 friendly</strong>. For a path tracer, if a ray intersects a volumetric object, it will go in and follow the <em>Radiative Transportation Equation</em>, after attenuation and bouncing inside the volume, it will bounce out of the object. However, if we use the same technique here used in the film industry using either delta tracking, ratio tracking or ray marching etc., we will be unable to match the rendering result with the volumetric material, at least with limited rays. We need to apply a similar approach as used in UE4 - the volumetric objects are rendered in a different pass other than opaque objects.</p></li>
 
-<li><p><strong>There is no shadow for custom volumetric material</strong>. If we follow the path tracing framework, volumetric shadows will be created, which is a problem if we need to apply ATAA, since we do not have shadow for them in UE4 by default. So, we need to modify the path tracer to avoid shadow for volumetric material.</p></li>
+<li><p><strong>There is no shadow for the custom volumetric material</strong>. If we follow the path tracing framework, volumetric shadows will be created, which is a problem if we need to apply ATAA, since we do not have shadow for them in UE4 by default. So, we need to modify the path tracer to avoid shadow for volumetric material.</p></li>
 
 <li><p><strong>Generic solution to support all volumetric materials</strong>. We can hard code the material shader into the post process without relying on the editor, but a more generic solution that can be automated, at least in a later phase, is preferred. Then, users can have volumetric objects supporting ATAA without extra efforts. However, their change to the material in the editor is directly reflected in the rendering.</p></li>
 </ol>

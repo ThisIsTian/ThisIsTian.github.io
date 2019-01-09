@@ -91,7 +91,7 @@
               <a class="navlinks-parent">Projects</a>
               <div class="navlinks-children">
                 
-                  <a href="https://ThisIsTian.github.io/post/adaptive-temporal-antialiasing-with-rtx-off">ATAA</a>
+                  <a href="https://ThisIsTian.github.io/post/adaptive-temporal-antialiasing-without-rtx">ATAA</a>
                 
               </div>
             </li>
@@ -251,7 +251,7 @@
               </p>
               <div class="post-entry">
                 
-                  Introduction Volume object is a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.
+                  Introduction Volume objects are a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.
                   <a href="https://ThisIsTian.github.io/post/add-volumetric-material-support/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -284,7 +284,7 @@
               </p>
               <div class="post-entry">
                 
-                  The original paper adaptive temporal antialiasing by Adam Marrs et al. introduced how ATAA can be implemented with RTX in a summary. In this post, the focus is on the technique and problem I came across when adding ATAA to UE4 in course project without RTX.
+                  The original paper adaptive temporal antialiasing by Adam Marrs et al. introduced how ATAA can be implemented with RTX in a summary. In this post, the focus is on the technique and problems I came across when adding ATAA to UE4 in a course project without RTX.
 Segmentation The first step to implement ATAA is to classify pixel types and record history information. In the paper, the pixel types include: FXAA, TAA, ATAA.
                   <a href="https://ThisIsTian.github.io/post/add-ataa-into-ue4/" class="post-read-more">[Read More]</a>
                 
@@ -295,8 +295,8 @@ Segmentation The first step to implement ATAA is to classify pixel types and rec
             </article>
           
             <article class="post-preview">
-              <a href="https://ThisIsTian.github.io/post/adaptive-temporal-antialiasing-with-rtx-off/">
-                <h2 class="post-title">Adaptive Temporal Antialiasing With RTX OFF</h2>
+              <a href="https://ThisIsTian.github.io/post/adaptive-temporal-antialiasing-without-rtx/">
+                <h2 class="post-title">Adaptive Temporal Antialiasing Without RTX</h2>
 
                 
               </a>
@@ -318,8 +318,8 @@ Segmentation The first step to implement ATAA is to classify pixel types and rec
               </p>
               <div class="post-entry">
                 
-                  Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when the camera moved. However, it was fine at that time because only static screenshots were needed. Anyhow, it got my attention. So, for the course project for graphics for game instructed by Dr. Marc Olano, I tried to implement adaptive temporal antialiasing (ATAA) in UE4 4.20.2 on my Mac to mitigate this problem.
-                  <a href="https://ThisIsTian.github.io/post/adaptive-temporal-antialiasing-with-rtx-off/" class="post-read-more">[Read More]</a>
+                  Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when the camera moved. However, it was fine at that time because only static screenshots were needed. Anyhow, it got my attention. So, for the course project for the graphics for games class instructed by Dr. Marc Olano, I tried to implement adaptive temporal antialiasing (ATAA) in UE4 4.
+                  <a href="https://ThisIsTian.github.io/post/adaptive-temporal-antialiasing-without-rtx/" class="post-read-more">[Read More]</a>
                 
               </div>
 
