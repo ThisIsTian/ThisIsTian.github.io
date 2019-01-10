@@ -673,7 +673,7 @@ I can achieve an amortized rays of 7.1G Rays/s on GTX 1080 (327M Rays/s for full
 aggregating ATAA pixels. I am still working on this.</p>
 
 <p><strong>Ray object intersection optimization</strong>. In the current implementation, each ray iterates all objects in the scene to find a hit. With more objects and detailed meshes,
-a acceleration structure (e.g., bounding volume hierarchy) is required to make it faster. Otherwise, we cannot use ATAA on all objects, we can only limit the application range
+an acceleration structure (e.g., bounding volume hierarchy) is required to make it faster. Otherwise, we cannot use ATAA on all objects, we can only limit the application range
 to few material type, like volume objects only.</p>
 
 <h2 id="helpful-tips-on-mac">Helpful tips on Mac</h2>
