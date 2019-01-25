@@ -243,6 +243,7 @@ ga('send', 'pageview');
 
 
 
+
   
     <div id="header-big-imgs" data-num-img=1 
       
@@ -252,6 +253,23 @@ ga('send', 'pageview');
          data-img-desc-1="Multiple volumetric objects in motion"
       ></div>
   
+
+
+<meta
+        property="og:video:url"
+        content="
+    
+   "
+/>
+<meta
+        property="og:video:secure_url"
+        content="
+    
+   "
+/>
+<meta property="og:video:width" content="266"/>
+<meta property="og:video:height" content="200"/>
+<meta property="og:video:type" content="video/mp4"/>
 
   <header class="header-section has-img">
     
@@ -524,7 +542,7 @@ $$</p>
 </tbody>
 </table>
 
-<p>You can compare the difference between image a) and b) above during the overlapping region. They are not the same. After exploration, I find that UE4 applies <a href="https://en.wikipedia.org/wiki/Alpha_compositing">Porter and Duff&rsquo;s <strong>over operator</strong></a> to blend transparent objects. The formula is as below:</p>
+<p>You can compare the difference between image a) and b) above within the overlapping region. They are not the same. After exploration, I find that UE4 applies <a href="https://en.wikipedia.org/wiki/Alpha_compositing">Porter and Duff&rsquo;s <strong>over operator</strong></a> to blend transparent objects. The formula is as below:</p>
 
 <p>$$
 out_{A}=src_{A}+(1-src_{A})\cdot dst_A
