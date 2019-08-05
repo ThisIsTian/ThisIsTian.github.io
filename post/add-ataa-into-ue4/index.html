@@ -66,7 +66,7 @@ Segmentation The first step to implement ATAA is to classify pixel types and rec
   "description" : "The original paper adaptive temporal antialiasing by Adam Marrs et al. introduced how ATAA can be implemented with RTX in a summary. In this post, the focus is on the technique and problems I came across when adding ATAA to UE4 in a course project without RTX.
 Segmentation The first step to implement ATAA is to classify pixel types and record history information. In the paper, the pixel types include: FXAA, TAA, ATAA.",
   "inLanguage" : "en",
-  "wordCount": 3612,
+  "wordCount": 3613,
   "datePublished" : "2019-01-06T08:45:22",
   "dateModified" : "2019-01-06T08:45:22",
   "image" : "https://ThisIsTian.github.io/favicon.ico",
@@ -375,7 +375,7 @@ V(X)=\frac{1}{N-1}\sum_{i=1}^N(x_i-\mu)^2
 $$
 However, this would require us to keep all $N$ render targets between frames, which is not economical. A better solution is one that we can update the variance online incrementally every frame. This is how TAA updates the pixel color of final rendering by applying exponential moving average. With the same idea, we can apply <a href="http://people.ds.cam.ac.uk/fanf2/hermes/doc/antiforgery/stats.pdf">exponential moving variance</a> (EMV) to achieve this as:
 $$
-\mu_n = \alpha \mu_{n-1} + (1-\alpha)x_n
+\mu_n = (1-\alpha) \mu_{n-1} + \alpha x_n
 $$
 $$
 \sigma^2_n=(1-\alpha)\sigma^2_{n-1}+\alpha(1-\alpha)(x_n-\mu_{n-1})^2
