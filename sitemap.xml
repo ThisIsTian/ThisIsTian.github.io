@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ThisIsTian.github.io/publication/real-time-subsurface-with-adaptive-sampling/</loc>
+    <lastmod>2020-05-06T08:45:22-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ThisIsTian.github.io/post/add-volumetric-material-support/</loc>
     <lastmod>2019-01-06T08:48:15-08:00</lastmod>
   </url>
@@ -19,7 +24,7 @@
   
   <url>
     <loc>https://ThisIsTian.github.io/</loc>
-    <lastmod>2019-01-06T08:48:15-08:00</lastmod>
+    <lastmod>2020-05-06T08:45:22-08:00</lastmod>
   </url>
   
   <url>
@@ -40,6 +45,11 @@
     <loc>https://ThisIsTian.github.io/post/</loc>
     <lastmod>2019-01-06T08:48:15-08:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ThisIsTian.github.io/publication/</loc>
+    <lastmod>2020-05-06T08:45:22-08:00</lastmod>
   </url>
   
   <url>

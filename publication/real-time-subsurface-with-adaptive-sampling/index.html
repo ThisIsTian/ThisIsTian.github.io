@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Real-time subsurface scattering with single pass variance-guided adaptive importance sampling - Titan de Tian</title>
+  <meta property="og:title" content="Real-time subsurface scattering with single pass variance-guided adaptive importance sampling" />
+  <meta name="twitter:title" content="Real-time subsurface scattering with single pass variance-guided …" />
+  <meta name="description" content="
+
+
+Figure 1: Subsurface rendering comparison from close to far at 1920x1080 on NVIDIA Quadro P4000 (implemented in UE4). (a) our adaptive sampling algorithm ($σ\\_0^2$ = 0.001, κ = 0.2, $b\\_{min}$ = 8 spp, $b\\_{max}$ = 64 spp), (b) Golubev [2018]’s sampling model in our framework with 64spp, (c) a Baseline fixed 64-sample implementation without our proposed acceleration techniques, (d) Separable screen-space diffusion. (e) Visualization of our adaptive sample count for each view. Our quality is higher than Baseline in all three scenarios (close skin patch, ear, and front). Moreover, our algorithm runs faster on the close skin patch with an acceleration of up to 91.07× (2.78 ms vs 253.18 ms). In addition, our algorithm enables better quality with run time comparable or even better than Separable. Error measurements are PSNR for the subsurface, as compared to a reference image at 2k samples per pixel. Digital Mike ©Epic Games, Inc.
+
+
+
+
+Abstract: In real-time applications, it is difficult to simulate realistic subsurface scattering with differing degrees
+translucency. Burley’s reflectance approximation by empirically fitting the diffusion profile as a whole makes
+it possible to achieve realistic looking subsurface scattering for different translucent materials in screen
+space. However, achieving a physically correct result requires real-time Monte Carlo sampling of the analytic
+importance function per pixel per frame, which seems prohibitive to achieve. In this paper, we propose an
+approximation of the importance function that can be evaluated in real-time. Since subsurface scattering
+is more pronounced in certain regions (e.g., with light gradient change), we propose an adaptive sampling
+method based on temporal variance to lower the required number of samples. We propose a one phase
+adaptive sampling pass that is unbiased, and able to adapt to scene changes due to motion and lighting.
+To further improve the quality, we explore temporal reuse with a guiding pass prior to the final temporal
+anti-aliasing (TAA) phase that further improves the quality. Our local guiding pass does not constrain the
+TAA implementation, and only requires one additional texture to be passed between frames. Our proposed
+variance-guided algorithm has the potential to make stochastic sampling algorithm effective for real-time
+rendering.">
+  <meta property="og:description" content="
+
+
+Figure 1: Subsurface rendering comparison from close to far at 1920x1080 on NVIDIA Quadro P4000 (implemented in UE4). (a) our adaptive sampling algorithm ($σ\\_0^2$ = 0.001, κ = 0.2, $b\\_{min}$ = 8 spp, $b\\_{max}$ = 64 spp), (b) Golubev [2018]’s sampling model in our framework with 64spp, (c) a Baseline fixed 64-sample implementation without our proposed acceleration techniques, (d) Separable screen-space diffusion. (e) Visualization of our adaptive sample count for each view. Our quality is higher than Baseline in all three scenarios (close skin patch, ear, and front). Moreover, our algorithm runs faster on the close skin patch with an acceleration of up to 91.07× (2.78 ms vs 253.18 ms). In addition, our algorithm enables better quality with run time comparable or even better than Separable. Error measurements are PSNR for the subsurface, as compared to a reference image at 2k samples per pixel. Digital Mike ©Epic Games, Inc.
+
+
+
+
+Abstract: In real-time applications, it is difficult to simulate realistic subsurface scattering with differing degrees
+translucency. Burley’s reflectance approximation by empirically fitting the diffusion profile as a whole makes
+it possible to achieve realistic looking subsurface scattering for different translucent materials in screen
+space. However, achieving a physically correct result requires real-time Monte Carlo sampling of the analytic
+importance function per pixel per frame, which seems prohibitive to achieve. In this paper, we propose an
+approximation of the importance function that can be evaluated in real-time. Since subsurface scattering
+is more pronounced in certain regions (e.g., with light gradient change), we propose an adaptive sampling
+method based on temporal variance to lower the required number of samples. We propose a one phase
+adaptive sampling pass that is unbiased, and able to adapt to scene changes due to motion and lighting.
+To further improve the quality, we explore temporal reuse with a guiding pass prior to the final temporal
+anti-aliasing (TAA) phase that further improves the quality. Our local guiding pass does not constrain the
+TAA implementation, and only requires one additional texture to be passed between frames. Our proposed
+variance-guided algorithm has the potential to make stochastic sampling algorithm effective for real-time
+rendering.">
+  <meta name="twitter:description" content="
+
+
+Figure 1: Subsurface rendering comparison from close to far at 1920x1080 on NVIDIA Quadro P4000 (implemented in UE4). (a) our adaptive sampling algorithm ($σ\\_0^2$ = 0.001, κ = 0.2, $b\\_{min}$ = …">
+  <meta name="author" content="Tiantian Xie"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Titan de Tian",
+    
+    "url": "https://ThisIsTian.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https://ThisIsTian.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https://ThisIsTian.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https://ThisIsTian.github.io/publication/real-time-subsurface-with-adaptive-sampling/",
+          "name": "Real time subsurface scattering with single pass variance guided adaptive importance sampling"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Tiantian Xie, Marc Olano, Brian Karis, and Krzysztof Narkowicz"
+  },
+  "headline": "Real-time subsurface scattering with single pass variance-guided adaptive importance sampling",
+  "description" : " Figure 1: Subsurface rendering comparison from close to far at 1920x1080 on NVIDIA Quadro P4000 (implemented in UE4). (a) our adaptive sampling algorithm ($σ\\_0^2$ = 0.001, κ = 0.2, $b\\_{min}$ = 8 spp, $b\\_{max}$ = 64 spp), (b) Golubev [2018]’s sampling model in our framework with 64spp, (c) a Baseline fixed 64-sample implementation without our proposed acceleration techniques, (d) Separable screen-space diffusion. (e) Visualization of our adaptive sample count for each view. Our quality is higher than Baseline in all three scenarios (close skin patch, ear, and front). Moreover, our algorithm runs faster on the close skin patch with an acceleration of up to 91.07× (2.78 ms vs 253.18 ms). In addition, our algorithm enables better quality with run time comparable or even better than Separable. Error measurements are PSNR for the subsurface, as compared to a reference image at 2k samples per pixel. Digital Mike ©Epic Games, Inc.   Abstract: In real-time applications, it is difficult to simulate realistic subsurface scattering with differing degrees translucency. Burley’s reflectance approximation by empirically fitting the diffusion profile as a whole makes it possible to achieve realistic looking subsurface scattering for different translucent materials in screen space. However, achieving a physically correct result requires real-time Monte Carlo sampling of the analytic importance function per pixel per frame, which seems prohibitive to achieve. In this paper, we propose an approximation of the importance function that can be evaluated in real-time. Since subsurface scattering is more pronounced in certain regions (e.g., with light gradient change), we propose an adaptive sampling method based on temporal variance to lower the required number of samples. We propose a one phase adaptive sampling pass that is unbiased, and able to adapt to scene changes due to motion and lighting. To further improve the quality, we explore temporal reuse with a guiding pass prior to the final temporal anti-aliasing (TAA) phase that further improves the quality. Our local guiding pass does not constrain the TAA implementation, and only requires one additional texture to be passed between frames. Our proposed variance-guided algorithm has the potential to make stochastic sampling algorithm effective for real-time rendering.
+",
+  "inLanguage" : "en",
+  "wordCount": 504,
+  "datePublished" : "2020-05-06T08:45:22",
+  "dateModified" : "2020-05-06T08:45:22",
+  "image" : "https://ThisIsTian.github.io/favicon.ico",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https://ThisIsTian.github.io/publication/real-time-subsurface-with-adaptive-sampling/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https://ThisIsTian.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https://ThisIsTian.github.io/favicon.ico",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Real-time subsurface scattering with single pass variance-guided adaptive importance sampling" />
+<meta property="og:description" content="
+
+
+Figure 1: Subsurface rendering comparison from close to far at 1920x1080 on NVIDIA Quadro P4000 (implemented in UE4). (a) our adaptive sampling algorithm ($σ\\_0^2$ = 0.001, κ = 0.2, $b\\_{min}$ = 8 spp, $b\\_{max}$ = 64 spp), (b) Golubev [2018]’s sampling model in our framework with 64spp, (c) a Baseline fixed 64-sample implementation without our proposed acceleration techniques, (d) Separable screen-space diffusion. (e) Visualization of our adaptive sample count for each view. Our quality is higher than Baseline in all three scenarios (close skin patch, ear, and front). Moreover, our algorithm runs faster on the close skin patch with an acceleration of up to 91.07× (2.78 ms vs 253.18 ms). In addition, our algorithm enables better quality with run time comparable or even better than Separable. Error measurements are PSNR for the subsurface, as compared to a reference image at 2k samples per pixel. Digital Mike ©Epic Games, Inc.
+
+
+
+
+Abstract: In real-time applications, it is difficult to simulate realistic subsurface scattering with differing degrees
+translucency. Burley’s reflectance approximation by empirically fitting the diffusion profile as a whole makes
+it possible to achieve realistic looking subsurface scattering for different translucent materials in screen
+space. However, achieving a physically correct result requires real-time Monte Carlo sampling of the analytic
+importance function per pixel per frame, which seems prohibitive to achieve. In this paper, we propose an
+approximation of the importance function that can be evaluated in real-time. Since subsurface scattering
+is more pronounced in certain regions (e.g., with light gradient change), we propose an adaptive sampling
+method based on temporal variance to lower the required number of samples. We propose a one phase
+adaptive sampling pass that is unbiased, and able to adapt to scene changes due to motion and lighting.
+To further improve the quality, we explore temporal reuse with a guiding pass prior to the final temporal
+anti-aliasing (TAA) phase that further improves the quality. Our local guiding pass does not constrain the
+TAA implementation, and only requires one additional texture to be passed between frames. Our proposed
+variance-guided algorithm has the potential to make stochastic sampling algorithm effective for real-time
+rendering.">
+<meta property="og:image" content="https://ThisIsTian.github.io/favicon.ico" />
+<meta property="fb:app_id" content="541191449733147" />
+<meta property="og:url" content="https://ThisIsTian.github.io/publication/real-time-subsurface-with-adaptive-sampling/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Titan de Tian" />
+  <meta name="twitter:title" content="Real-time subsurface scattering with single pass variance-guided …" />
+  <meta name="twitter:description" content="
+
+
+Figure 1: Subsurface rendering comparison from close to far at 1920x1080 on NVIDIA Quadro P4000 (implemented in UE4). (a) our adaptive sampling algorithm ($σ\\_0^2$ = 0.001, κ = 0.2, $b\\_{min}$ = …">
+  <meta name="twitter:image" content="https://ThisIsTian.github.io/favicon.ico" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@ThisIsTian" />
+  <meta name="twitter:creator" content="@ThisIsTian" />
+  <link href='https://ThisIsTian.github.io/favicon.ico' rel='icon' type='image/x-icon'/>
+
+  
+   <meta property="og:image" content="https://ThisIsTian.github.io/favicon.ico" />
+    <meta name="twitter:image" content="https://ThisIsTian.github.io/favicon.ico" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@ThisIsTian" />
+  <meta name="twitter:creator" content="@ThisIsTian" />
+  <meta property="fb:app_id" content="541191449733147" />
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Titan de Tian" />
+
+  <meta name="generator" content="Hugo 0.36.1" />
+  <link rel="alternate" href="https://ThisIsTian.github.io/index.xml" type="application/rss+xml" title="Titan de Tian">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://ThisIsTian.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://ThisIsTian.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://ThisIsTian.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+<link rel="stylesheet" href="https://ThisIsTian.github.io/css/publication.css" />
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-132189135-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://ThisIsTian.github.io">Titan de Tian</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="https://ThisIsTian.github.io/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">Projects</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://ThisIsTian.github.io/post/adaptive-temporal-antialiasing-without-rtx">ATAA</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Publication" href="https://ThisIsTian.github.io/publication">Publication</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="https://ThisIsTian.github.io/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Titan de Tian" href="https://ThisIsTian.github.io">
+            <img class="avatar-img" src="https://ThisIsTian.github.io/favicon.ico" alt="Titan de Tian" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+
+  
+    <div id="header-big-imgs" data-num-img=1 
+      
+         
+          data-img-src-1="/Image/publication/i3d2020/SubsurfaceTeaserHeader.png" 
+         
+         data-img-desc-1="I3D, 2020"
+      ></div>
+  
+
+
+
+  <header class="header-section has-img">
+    
+      <div class="intro-header big-img">
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="publication-heading">
+                <h1>Real-time subsurface scattering with single pass variance-guided adaptive importance sampling</h1>
+                  
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="img-desc" style="display: inline;"></span>
+      </div>
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="publication-heading">
+              
+                <h1>Real-time subsurface scattering with single pass variance-guided adaptive importance sampling</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+
+        
+        <div style="text-align: center;margin-bottom: 10px">Proc. ACM Comput. Graph. Interact. Tech. 3, 1 (I3D, 2020)</div>
+        
+
+        
+          <div class="publication-author-section">
+          
+          
+            <div class="publication-author">
+              <div class="publication-author-name">
+                  <a href="https://thisistian.github.io" target="_blank">Tiantian Xie</a>
+              </div>
+              <div class="publication-author-inst">
+                University of Maryland, Baltimore County
+              </div>
+            </div>
+          
+            <div class="publication-author">
+              <div class="publication-author-name">
+                  <a href="https://www.csee.umbc.edu/~olano/" target="_blank">Marc Olano</a>
+              </div>
+              <div class="publication-author-inst">
+                University of Maryland, Baltimore County
+              </div>
+            </div>
+          
+            <div class="publication-author">
+              <div class="publication-author-name">
+                  <a href="http://graphicrants.blogspot.com" target="_blank">Brian Karis</a>
+              </div>
+              <div class="publication-author-inst">
+                Epic Games, Inc
+              </div>
+            </div>
+          
+            <div class="publication-author">
+              <div class="publication-author-name">
+                  <a href="https://knarkowicz.wordpress.com" target="_blank">Krzysztof Narkowicz</a>
+              </div>
+              <div class="publication-author-inst">
+                Epic Games, Inc
+              </div>
+            </div>
+          
+          </div>
+        
+
+
+        <div class="publication-preview-teaser">
+<image src="../../Image/publication/i3d2020/subsurfaceteaser.png"></image>
+<div class="teaser-caption">
+Figure 1: Subsurface rendering comparison from close to far at 1920x1080 on NVIDIA Quadro P4000 (implemented in UE4). (a) our adaptive sampling algorithm ($σ\\_0^2$ = 0.001, κ = 0.2, $b\\_{min}$ = 8 spp, $b\\_{max}$ = 64 spp), (b) Golubev [2018]’s sampling model in our framework with 64spp, (c) a Baseline fixed 64-sample implementation without our proposed acceleration techniques, (d) Separable screen-space diffusion. (e) Visualization of our adaptive sample count for each view. Our quality is higher than Baseline in all three scenarios (close skin patch, ear, and front). Moreover, our algorithm runs faster on the close skin patch with an acceleration of up to 91.07× (2.78 ms vs 253.18 ms). In addition, our algorithm enables better quality with run time comparable or even better than Separable. Error measurements are PSNR for the subsurface, as compared to a reference image at 2k samples per pixel. Digital Mike ©Epic Games, Inc.
+</div>
+</div>
+
+<p><p style="text-align: justify; word-wrap: break-word; font-size:14px">
+<em>Abstract</em>: In real-time applications, it is difficult to simulate realistic subsurface scattering with differing degrees
+translucency. Burley’s reflectance approximation by empirically fitting the diffusion profile as a whole makes
+it possible to achieve realistic looking subsurface scattering for different translucent materials in screen
+space. However, achieving a physically correct result requires real-time Monte Carlo sampling of the analytic
+importance function per pixel per frame, which seems prohibitive to achieve. In this paper, we propose an
+approximation of the importance function that can be evaluated in real-time. Since subsurface scattering
+is more pronounced in certain regions (e.g., with light gradient change), we propose an adaptive sampling
+method based on temporal variance to lower the required number of samples. We propose a one phase
+adaptive sampling pass that is unbiased, and able to adapt to scene changes due to motion and lighting.
+To further improve the quality, we explore temporal reuse with a guiding pass prior to the final temporal
+anti-aliasing (TAA) phase that further improves the quality. Our local guiding pass does not constrain the
+TAA implementation, and only requires one additional texture to be passed between frames. Our proposed
+variance-guided algorithm has the potential to make stochastic sampling algorithm effective for real-time
+rendering.</p></p>
+
+<!--- #### Download #### --->
+
+<p><font size = "2"></p>
+
+<div>
+<a href="../spvg_xie_2020_I3D.pdf">
+    <div>
+    <image style="float: left; width: 12pt; vertical-align:middle" src="../../icons8-pdf-40.png"/>
+    <span>Preprint (75 MB PDF)</span>
+    </div>
+</a>
+</div>
+<div>
+<a href="https://dl.acm.org/doi/10.1145/3384536">
+    <div>
+    <image style="float: left; width: 12pt;vertical-align:middle" src="../../icons8-home-40.png"/>
+    <span>Publisher's homepage</span>
+    </div>
+</a>
+</div>
+
+<h2 id="font"></font></h2>
+
+<h4 id="video">Video</h4>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/OLS6Fm7WJA0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<h4 id="bibtex">BibTex</h4>
+
+<pre><code>@article{xie2020real,
+  title={Real-time subsurface scattering with single pass variance-guided adaptive importance sampling},
+  author={Xie, Tiantian and Olano, Marc and Karis, Brian and Narkowicz, Krzysztof},
+  journal={Proceedings of the ACM on Computer Graphics and Interactive Techniques},
+  volume={3},
+  number={1},
+  pages={1--21},
+  year={2020},
+  publisher={ACM New York, NY, USA}
+}
+</code></pre>
+
+<hr />
+
+<h4 id="adaptive-sampling-algorithm-overview">Adaptive sampling algorithm overview</h4>
+
+<p><img src="../../Image/publication/i3d2020/AlgorithmOverview.png" alt="algorithm overview" /></p>
+
+<h5 id="update-mathcal-h-i">Update $\mathcal{H_i}$</h5>
+
+<p><font size = "2">
+$$\mu_i = (1-\alpha)\mathcal{C}(x_i,\Lambda)+ \alpha \mathcal{S}(p_i); \, \alpha=\mathcal{M}(\alpha_0,\Lambda); p_i = \mathcal{N}(x_i,f(i))$$
+$$\bar n_{(i)} = (1-\alpha)\bar n_{(i-1)}+\alpha n_{(i)}$$
+$$\sigma_i^2 = (1-\alpha)\sigma^2_{i-1} + \alpha(1-\alpha)(\mathcal{S}(p_i) - \mathcal{C}(x_i,\Lambda))^2$$
+</font></p>
+
+<h5 id="sample-estimation">Sample estimation</h5>
+
+<p><font size = "2">
+$$\hat n_{(i)} = \kappa\cdot \Delta(i) + E ( \bar n_{(i)}), \kappa \in [0,1] $$
+$$\Delta(i) = \frac{(\sigma^2_{M_{(i-1)}}-\sigma_0^2)}{\sigma_{0}^2}\cdot \bar n_{(i-1)} \cdot (k-1)$$
+$$E ( \bar n_{(i)})=\sigma_{M_{(i-1)}}^2/\sigma_0^2\cdot \bar n_{(i-1)}$$
+</font></p>
+
+<h4 id="disclaimer">Disclaimer</h4>
+
+<hr />
+
+<p><font size = "2">
+© The Author(s) / ACM. This is the author&rsquo;s version of the work. It is posted here for your personal use. Not for redistribution.
+The definitive Version of Record was published in Proceedings of the ACM on Computer Graphics and Interactive Techniques, <a href="https://doi.org/10.1145/3384536">https://doi.org/10.1145/3384536</a>
+</font></p>
+
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:xtiant1@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/ThisIsTian" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/tiantianxie" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            
+            <a href="https://ThisIsTian.github.io/index.xml" title="RSS">
+            
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Tiantian Xie
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2020
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://ThisIsTian.github.io">Titan de Tian</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.36.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script>
+    renderMathInElement(
+        document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\[", right: "\\]", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\(", right: "\\)", display: false}
+            ]
+        }
+    );
+</script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ThisIsTian.github.io/js/main.js"></script>
+<script src="https://ThisIsTian.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script>
+<script src="https://ThisIsTian.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
+
