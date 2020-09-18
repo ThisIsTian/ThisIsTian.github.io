@@ -109,7 +109,7 @@ Figure 1: Subsurface rendering comparison from close to far at 1920x1080 on NVID
   "description" : " Figure 1: Subsurface rendering comparison from close to far at 1920x1080 on NVIDIA Quadro P4000 (implemented in UE4). (a) our adaptive sampling algorithm ($σ\\_0^2$ = 0.001, κ = 0.2, $b\\_{min}$ = 8 spp, $b\\_{max}$ = 64 spp), (b) Golubev [2018]’s sampling model in our framework with 64spp, (c) a Baseline fixed 64-sample implementation without our proposed acceleration techniques, (d) Separable screen-space diffusion. (e) Visualization of our adaptive sample count for each view. Our quality is higher than Baseline in all three scenarios (close skin patch, ear, and front). Moreover, our algorithm runs faster on the close skin patch with an acceleration of up to 91.07× (2.78 ms vs 253.18 ms). In addition, our algorithm enables better quality with run time comparable or even better than Separable. Error measurements are PSNR for the subsurface, as compared to a reference image at 2k samples per pixel. Digital Mike ©Epic Games, Inc.   Abstract: In real-time applications, it is difficult to simulate realistic subsurface scattering with differing degrees translucency. Burley’s reflectance approximation by empirically fitting the diffusion profile as a whole makes it possible to achieve realistic looking subsurface scattering for different translucent materials in screen space. However, achieving a physically correct result requires real-time Monte Carlo sampling of the analytic importance function per pixel per frame, which seems prohibitive to achieve. In this paper, we propose an approximation of the importance function that can be evaluated in real-time. Since subsurface scattering is more pronounced in certain regions (e.g., with light gradient change), we propose an adaptive sampling method based on temporal variance to lower the required number of samples. We propose a one phase adaptive sampling pass that is unbiased, and able to adapt to scene changes due to motion and lighting. To further improve the quality, we explore temporal reuse with a guiding pass prior to the final temporal anti-aliasing (TAA) phase that further improves the quality. Our local guiding pass does not constrain the TAA implementation, and only requires one additional texture to be passed between frames. Our proposed variance-guided algorithm has the potential to make stochastic sampling algorithm effective for real-time rendering.
 ",
   "inLanguage" : "en",
-  "wordCount": 533,
+  "wordCount": 537,
   "datePublished" : "2020-05-06T08:45:22",
   "dateModified" : "2020-05-06T08:45:22",
   "image" : "https://ThisIsTian.github.io/favicon.ico",
@@ -463,6 +463,14 @@ rendering.</p></p>
     <div>
     <image style="float: left; width: 12pt; vertical-align:middle" src="../../icons8-pdf-40.png"/>
     <span>Preprint (75 MB PDF)</span>
+    </div>
+</a>
+</div>
+<div>
+<a href="../spvg_xie_2020_I3D_small.pdf">
+    <div>
+    <image style="float: left; width: 12pt; vertical-align:middle" src="../../icons8-pdf-40.png"/>
+    <span>Preprint-small (7.3 MB PDF)</span>
     </div>
 </a>
 </div>
