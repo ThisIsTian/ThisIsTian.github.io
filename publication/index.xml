@@ -37,7 +37,7 @@ Figure 1: Dynamic subsurface scene just after light has been turned off. Our met
 &lt;/div&gt;
 
 &lt;p style=&#34;text-align: justify; word-wrap: break-word; font-size:14px&#34;&gt;
-&lt;em&gt;Abstract&lt;/em&gt;: Real-time adaptive sampling is a new technique recently proposed for efficient importance sampling in realtime
+&lt;em&gt;Abstract&lt;/em&gt;: Real-time adaptive sampling is a new technique recently proposed for efficient importance sampling in real-time
             Monte Carlo sampling in subsurface scattering. It adaptively places samples based on variance tracking
             to help escape the uncanny valley of subsurface rendering. However, the occasional performance drop due to
             temporal lighting dynamics (e.g., guns or lights turning on and off) could hinder adoption in games or other
