@@ -31,7 +31,36 @@ To further improve the quality, we explore temporal reuse with a guiding pass pr
 anti-aliasing (TAA) phase that further improves the quality. Our local guiding pass does not constrain the
 TAA implementation, and only requires one additional texture to be passed between frames. Our proposed
 variance-guided algorithm has the potential to make stochastic sampling algorithm effective for real-time
-rendering.">
+rendering.
+
+
+
+
+
+
+
+    
+    
+    Preprint (75 MB PDF)
+    
+
+
+
+
+    
+    
+    Preprint-small (7.3 MB PDF)
+    
+
+
+
+
+    
+    
+    Publisher&#39;s homepage
+    
+
+">
   <meta property="og:description" content="
 
 
@@ -53,7 +82,36 @@ To further improve the quality, we explore temporal reuse with a guiding pass pr
 anti-aliasing (TAA) phase that further improves the quality. Our local guiding pass does not constrain the
 TAA implementation, and only requires one additional texture to be passed between frames. Our proposed
 variance-guided algorithm has the potential to make stochastic sampling algorithm effective for real-time
-rendering.">
+rendering.
+
+
+
+
+
+
+
+    
+    
+    Preprint (75 MB PDF)
+    
+
+
+
+
+    
+    
+    Preprint-small (7.3 MB PDF)
+    
+
+
+
+
+    
+    
+    Publisher&#39;s homepage
+    
+
+">
   <meta name="twitter:description" content="
 
 
@@ -107,7 +165,7 @@ Figure 1: Subsurface rendering comparison from close to far at 1920x1080 on NVID
   },
   "headline": "Real-time subsurface scattering with single pass variance-guided adaptive importance sampling",
   "description" : " Figure 1: Subsurface rendering comparison from close to far at 1920x1080 on NVIDIA Quadro P4000 (implemented in UE4). (a) our adaptive sampling algorithm ($σ\\_0^2$ = 0.001, κ = 0.2, $b\\_{min}$ = 8 spp, $b\\_{max}$ = 64 spp), (b) Golubev [2018]’s sampling model in our framework with 64spp, (c) a Baseline fixed 64-sample implementation without our proposed acceleration techniques, (d) Separable screen-space diffusion. (e) Visualization of our adaptive sample count for each view. Our quality is higher than Baseline in all three scenarios (close skin patch, ear, and front). Moreover, our algorithm runs faster on the close skin patch with an acceleration of up to 91.07× (2.78 ms vs 253.18 ms). In addition, our algorithm enables better quality with run time comparable or even better than Separable. Error measurements are PSNR for the subsurface, as compared to a reference image at 2k samples per pixel. Digital Mike ©Epic Games, Inc.   Abstract: In real-time applications, it is difficult to simulate realistic subsurface scattering with differing degrees translucency. Burley’s reflectance approximation by empirically fitting the diffusion profile as a whole makes it possible to achieve realistic looking subsurface scattering for different translucent materials in screen space. However, achieving a physically correct result requires real-time Monte Carlo sampling of the analytic importance function per pixel per frame, which seems prohibitive to achieve. In this paper, we propose an approximation of the importance function that can be evaluated in real-time. Since subsurface scattering is more pronounced in certain regions (e.g., with light gradient change), we propose an adaptive sampling method based on temporal variance to lower the required number of samples. We propose a one phase adaptive sampling pass that is unbiased, and able to adapt to scene changes due to motion and lighting. To further improve the quality, we explore temporal reuse with a guiding pass prior to the final temporal anti-aliasing (TAA) phase that further improves the quality. Our local guiding pass does not constrain the TAA implementation, and only requires one additional texture to be passed between frames. Our proposed variance-guided algorithm has the potential to make stochastic sampling algorithm effective for real-time rendering.
-",
+ Preprint (75 MB PDF)     Preprint-small (7.3 MB PDF)     Publisher&#39;s homepage   ",
   "inLanguage" : "en",
   "wordCount": 558,
   "datePublished" : "2020-05-06T08:45:22",
@@ -150,7 +208,36 @@ To further improve the quality, we explore temporal reuse with a guiding pass pr
 anti-aliasing (TAA) phase that further improves the quality. Our local guiding pass does not constrain the
 TAA implementation, and only requires one additional texture to be passed between frames. Our proposed
 variance-guided algorithm has the potential to make stochastic sampling algorithm effective for real-time
-rendering.">
+rendering.
+
+
+
+
+
+
+
+    
+    
+    Preprint (75 MB PDF)
+    
+
+
+
+
+    
+    
+    Preprint-small (7.3 MB PDF)
+    
+
+
+
+
+    
+    
+    Publisher&#39;s homepage
+    
+
+">
 <meta property="og:image" content="https://ThisIsTian.github.io/Image/publication/i3d2020/SubsurfaceTeaserHeader.png" />
 <meta property="fb:app_id" content="541191449733147" />
 <meta property="og:url" content="https://ThisIsTian.github.io/publication/real-time-subsurface-with-adaptive-sampling/" />
@@ -218,7 +305,7 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Blog" href="https://ThisIsTian.github.io/">Blog</a>
+              <a title="Publication" href="https://ThisIsTian.github.io/publication">Publication</a>
             </li>
           
         
@@ -235,7 +322,7 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Publication" href="https://ThisIsTian.github.io/publication">Publication</a>
+              <a title="Blog" href="https://ThisIsTian.github.io/post">Blog</a>
             </li>
           
         
@@ -438,7 +525,7 @@ Figure 1: Subsurface rendering comparison from close to far at 1920x1080 on NVID
 </div>
 </div>
 
-<p><p style="text-align: justify; word-wrap: break-word; font-size:14px">
+<p style="text-align: justify; word-wrap: break-word; font-size:14px">
 <em>Abstract</em>: In real-time applications, it is difficult to simulate realistic subsurface scattering with differing degrees
 translucency. Burley’s reflectance approximation by empirically fitting the diffusion profile as a whole makes
 it possible to achieve realistic looking subsurface scattering for different translucent materials in screen
@@ -452,29 +539,29 @@ To further improve the quality, we explore temporal reuse with a guiding pass pr
 anti-aliasing (TAA) phase that further improves the quality. Our local guiding pass does not constrain the
 TAA implementation, and only requires one additional texture to be passed between frames. Our proposed
 variance-guided algorithm has the potential to make stochastic sampling algorithm effective for real-time
-rendering.</p></p>
+rendering.</p>
 
 <!--- #### Download #### --->
 
 <p><font size = "2"></p>
 
-<div>
-<a href="../spvg_xie_2020_I3D.pdf">
+<div class = "downloadable">
+<a href="../../publication/spvg_xie_2020_I3D.pdf">
     <div>
     <image style="float: left; width: 12pt; vertical-align:middle" src="../../icons8-pdf-40.png"/>
     <span>Preprint (75 MB PDF)</span>
     </div>
 </a>
 </div>
-<div>
-<a href="../spvg_xie_2020_I3D_small.pdf">
+<div class = "downloadable">
+<a href="../../publication/spvg_xie_2020_I3D_small.pdf">
     <div>
     <image style="float: left; width: 12pt; vertical-align:middle" src="../../icons8-pdf-40.png"/>
     <span>Preprint-small (7.3 MB PDF)</span>
     </div>
 </a>
 </div>
-<div>
+<div class = "downloadable">
 <a href="https://dl.acm.org/doi/10.1145/3384536">
     <div>
     <image style="float: left; width: 12pt;vertical-align:middle" src="../../icons8-home-40.png"/>
@@ -483,7 +570,9 @@ rendering.</p></p>
 </a>
 </div>
 
-<h2 id="font"></font></h2>
+<p></font></p>
+
+<h2 id="hugomore42"></h2>
 
 <h4 id="major-contributions">Major contributions</h4>
 
@@ -549,9 +638,9 @@ $$\Delta(i) = \frac{(\sigma^2_{M_{(i-1)}}-\sigma_0^2)}{\sigma_{0}^2}\cdot \bar n
 $$E ( \bar n_{(i)})=\sigma_{M_{(i-1)}}^2/\sigma_0^2\cdot \bar n_{(i-1)}$$
 </font></p>
 
-<h4 id="disclaimer">Disclaimer</h4>
-
 <hr />
+
+<h4 id="disclaimer">Disclaimer</h4>
 
 <p><font size = "2">
 © The Author(s) / ACM. This is the author&rsquo;s version of the work. It is posted here for your personal use. Not for redistribution.
@@ -568,6 +657,10 @@ The definitive Version of Record was published in Proceedings of the ACM on Comp
       
         <ul class="pager blog-pager">
           
+          
+            <li class="next">
+              <a href="https://ThisIsTian.github.io/publication/real-time-subsurface-control-variates/" data-toggle="tooltip" data-placement="top" title="Real-time Subsurface Control Variates: Temporally Stable Adaptive Sampling">Next Post &rarr;</a>
+            </li>
           
         </ul>
       
@@ -631,7 +724,7 @@ The definitive Version of Record was published in Proceedings of the ACM on Comp
 
           &nbsp;&bull;&nbsp;&copy;
           
-            2020
+            2021
           
 
           

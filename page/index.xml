@@ -17,7 +17,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>xtiant1@gmail.com (Tiantian Xie)</author>
       <guid>https://ThisIsTian.github.io/page/about/</guid>
-      <description>My name is Tiantian, a Ph.D. student who is interested in Real-time rendering, Game and Machine/Deep Learning.
+      <description>My name is Tiantian, a Ph.D. Candidate who is interested in Real-time rendering, Game and Machine/Deep Learning.
+My recent work is focused on adaptive sampling techniques for real-time rendering that can be directly adapted into game engines with low computing and bandwidth overhead. The adaptive sampling technique has been adopted in Unreal Engine since version 4.24 for subsurface scattering. Several real-time rendering engines have considered integration.
 If you are interested in the posts or me, feel free to contact me through LinkedIn, Twitter(@ThisIsTian) or email.</description>
     </item>
     

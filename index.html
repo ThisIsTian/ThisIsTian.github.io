@@ -95,7 +95,7 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Blog" href="https://ThisIsTian.github.io/">Blog</a>
+              <a title="Publication" href="https://ThisIsTian.github.io/publication">Publication</a>
             </li>
           
         
@@ -112,7 +112,7 @@ ga('send', 'pageview');
         
           
             <li>
-              <a title="Publication" href="https://ThisIsTian.github.io/publication">Publication</a>
+              <a title="Blog" href="https://ThisIsTian.github.io/post">Blog</a>
             </li>
           
         
@@ -222,7 +222,7 @@ ga('send', 'pageview');
               
               
                 
-                  <span class="page-subheading">Tiantian&#39;s graphics, game and ML/DL  blog</span>
+                  <span class="page-subheading">Selected Publications</span>
                 
               
               
@@ -243,96 +243,269 @@ ga('send', 'pageview');
         <div class="posts-list">
           
           
-            <article class="post-preview">
-              <a href="https://ThisIsTian.github.io/post/add-volumetric-material-support/">
-                <h2 class="post-title">Post 2: Add Volumetric Material Support</h2>
-                
-                
-              </a>
+          <article class="publication-preview">
 
+            
+            <a href="https://ThisIsTian.github.io/publication/real-time-subsurface-control-variates/">
+              <h2 class="publication-title">Real-time Subsurface Control Variates: Temporally Stable Adaptive Sampling</h2>
+            </a>
+            
+
+            <p class="publication-meta">
               <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 6, 2019
+
   
+
+    <i class="fas fa-user"> </i>
+    
+    
+        <a href="https://thisistian.github.io" target="_blank">Tiantian Xie</a>
+
+        
+        ,
+            
+              and
+            
+        
+
+    
+        <a href="https://www.csee.umbc.edu/~olano/" target="_blank">Marc Olano</a>
+
+        
+
+    
+
+
   
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Tiantian Xie
   
 </span>
 
 
-              <div class="post-entry">
-                
-                  Introduction Volume objects are a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.
-                  <a href="https://ThisIsTian.github.io/post/add-volumetric-material-support/" class="post-read-more">[Read More]</a>
-                
-              </div>
+            </p>
+
+            <a href="#">
+              
+              <h3 class="publication-subtitle">
+                Proc. ACM Comput. Graph. Interact. Tech. 4, 1 (I3D, 2021)
+              </h3>
+              
+            </a>
+
+            <div class="publication-entry">
+
+
 
               
-            </article>
+              <div class="publication-preview-teaser">
+
+<div class="publication-page">
+<image src="../../Image/publication/i3d2021/RegularLighting_Scene_171.png"></image>
+</div>
+
+<div class="project-page">
+<image src="../../Image/publication/i3d2021/Teaser.png"></image>
+</div>
+
+<div class="teaser-caption">
+Figure 1: Dynamic subsurface scene just after light has been turned off. Our method has consistently lower
+          sample count (d) than SPVG [Xie et al. 2020] (c) at this frame. It leads to lower sampling pass time in dynamic
+          lighting from 12.9 ms to 5.2 ms at 3360 × 1440 (×2.5), while maintaining good quality (47.5 dB) vs SPVG (48.6
+          dB). Separable (b) runs fastest for the whole subsurface pass at 4.0 ms, however, with visible banding artifacts.
+</div>
+</div>
+
+<p style="text-align: justify; word-wrap: break-word; font-size:14px">
+<em>Abstract</em>: Real-time adaptive sampling is a new technique recently proposed for efficient importance sampling in realtime
+            Monte Carlo sampling in subsurface scattering. It adaptively places samples based on variance tracking
+            to help escape the uncanny valley of subsurface rendering. However, the occasional performance drop due to
+            temporal lighting dynamics (e.g., guns or lights turning on and off) could hinder adoption in games or other
+            applications where smooth high frame rate is preferred. In this paper we propose a novel usage of Control
+            Variates (CV) in the sample domain instead of shading domain to maintain a consistent low pass time. Our
+            algorithm seamlessly reduces to diffuse with zero scattering samples for sub-pixel scattering. We propose a
+            novel joint-optimization algorithm for sample count and CV coefficient estimation. The main enabler is our
+            novel time-variant covariance updating method that helps remove the effect of recent temporal dynamics
+            from variance tracking. Since bandwidth is critical in real-time rendering, a solution without adding any extra
+            textures is also provided.</p>
+
+<!--- #### Download #### --->
+
+<p><font size = "2"></p>
+
+<div class="downloadable">
+<a href="../../publication/I3D_2021_preprint.pdf">
+    <div>
+    <image style="float: left; width: 12pt; vertical-align:middle" src="../../icons8-pdf-40.png"/>
+    <span>Preprint (46.2 MB PDF)</span>
+    </div>
+</a>
+</div>
+<div class="downloadable">
+<a href="../../publication/I3D_2021_preprint_low_res.pdf">
+    <div>
+    <image style="float: left; width: 12pt; vertical-align:middle" src="../../icons8-pdf-40.png"/>
+    <span>Preprint-small (7 MB PDF)</span>
+    </div>
+</a>
+</div>
+<div class = "downloadable">
+<a href="../../publication/I3D_2021_supplementary_low_res.pdf">
+    <div>
+    <image style="float: left; width: 12pt; vertical-align:middle" src="../../icons8-pdf-40.png"/>
+    <span>Supplementary (642 KB PDF)</span>
+    </div>
+</a>
+</div>
+              
+              <a href="https://ThisIsTian.github.io/publication/real-time-subsurface-control-variates/" class="publication-read-more">[Read More]</a>
+              
+              
+
+
+
+            </div>
+
+
+            
+
+          </article>
           
-            <article class="post-preview">
-              <a href="https://ThisIsTian.github.io/post/add-ataa-into-ue4/">
-                <h2 class="post-title">Post 1: Add ATAA Into UE4</h2>
-                
-                
-              </a>
+          <article class="publication-preview">
 
+            
+            <a href="https://ThisIsTian.github.io/publication/real-time-subsurface-with-adaptive-sampling/">
+              <h2 class="publication-title">Real-time subsurface scattering with single pass variance-guided adaptive importance sampling</h2>
+            </a>
+            
+
+            <p class="publication-meta">
               <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 6, 2019
+
   
+
+    <i class="fas fa-user"> </i>
+    
+    
+        <a href="https://thisistian.github.io" target="_blank">Tiantian Xie</a>
+
+        
+        ,
+            
+        
+
+    
+        <a href="https://www.csee.umbc.edu/~olano/" target="_blank">Marc Olano</a>
+
+        
+        ,
+            
+        
+
+    
+        <a href="http://graphicrants.blogspot.com" target="_blank">Brian Karis</a>
+
+        
+        ,
+            
+              and
+            
+        
+
+    
+        <a href="https://knarkowicz.wordpress.com" target="_blank">Krzysztof Narkowicz</a>
+
+        
+
+    
+
+
   
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Tiantian Xie
   
 </span>
 
 
-              <div class="post-entry">
-                
-                  The original paper adaptive temporal antialiasing by Adam Marrs et al. introduced how ATAA can be implemented with RTX in a summary. In this post, the focus is on the technique and problems I came across when adding ATAA to UE4 in a course project without RTX.
-Segmentation The first step to implement ATAA is to classify pixel types and record history information. In the paper, the pixel types include: FXAA, TAA, ATAA.
-                  <a href="https://ThisIsTian.github.io/post/add-ataa-into-ue4/" class="post-read-more">[Read More]</a>
-                
-              </div>
+            </p>
+
+            <a href="#">
+              
+              <h3 class="publication-subtitle">
+                Proc. ACM Comput. Graph. Interact. Tech. 3, 1 (I3D, 2020)
+              </h3>
+              
+            </a>
+
+            <div class="publication-entry">
+
+
 
               
-            </article>
-          
-            <article class="post-preview">
-              <a href="https://ThisIsTian.github.io/post/adaptive-temporal-antialiasing-without-rtx/">
-                <h2 class="post-title">Adaptive Temporal Antialiasing Without RTX</h2>
-                
-                
-              </a>
+              <div class="publication-preview-teaser">
+<image src="../../Image/publication/i3d2020/subsurfaceteaser.png"></image>
+<div class="teaser-caption">
+Figure 1: Subsurface rendering comparison from close to far at 1920x1080 on NVIDIA Quadro P4000 (implemented in UE4). (a) our adaptive sampling algorithm ($σ\\_0^2$ = 0.001, κ = 0.2, $b\\_{min}$ = 8 spp, $b\\_{max}$ = 64 spp), (b) Golubev [2018]’s sampling model in our framework with 64spp, (c) a Baseline fixed 64-sample implementation without our proposed acceleration techniques, (d) Separable screen-space diffusion. (e) Visualization of our adaptive sample count for each view. Our quality is higher than Baseline in all three scenarios (close skin patch, ear, and front). Moreover, our algorithm runs faster on the close skin patch with an acceleration of up to 91.07× (2.78 ms vs 253.18 ms). In addition, our algorithm enables better quality with run time comparable or even better than Separable. Error measurements are PSNR for the subsurface, as compared to a reference image at 2k samples per pixel. Digital Mike ©Epic Games, Inc.
+</div>
+</div>
 
-              <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 6, 2019
-  
-  
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Tiantian Xie
-  
-</span>
+<p style="text-align: justify; word-wrap: break-word; font-size:14px">
+<em>Abstract</em>: In real-time applications, it is difficult to simulate realistic subsurface scattering with differing degrees
+translucency. Burley’s reflectance approximation by empirically fitting the diffusion profile as a whole makes
+it possible to achieve realistic looking subsurface scattering for different translucent materials in screen
+space. However, achieving a physically correct result requires real-time Monte Carlo sampling of the analytic
+importance function per pixel per frame, which seems prohibitive to achieve. In this paper, we propose an
+approximation of the importance function that can be evaluated in real-time. Since subsurface scattering
+is more pronounced in certain regions (e.g., with light gradient change), we propose an adaptive sampling
+method based on temporal variance to lower the required number of samples. We propose a one phase
+adaptive sampling pass that is unbiased, and able to adapt to scene changes due to motion and lighting.
+To further improve the quality, we explore temporal reuse with a guiding pass prior to the final temporal
+anti-aliasing (TAA) phase that further improves the quality. Our local guiding pass does not constrain the
+TAA implementation, and only requires one additional texture to be passed between frames. Our proposed
+variance-guided algorithm has the potential to make stochastic sampling algorithm effective for real-time
+rendering.</p>
 
+<!--- #### Download #### --->
 
-              <div class="post-entry">
-                
-                  Introduction TL;DR - I was working on volumetric data in UE4 before starting this project. The rendering was a little burry when the camera moved. However, it was fine at that time because only static screenshots were needed. Anyhow, it got my attention. So, for the course project for the graphics for games class instructed by Dr. Marc Olano, I tried to implement adaptive temporal antialiasing (ATAA) in UE4 4.
-                  <a href="https://ThisIsTian.github.io/post/adaptive-temporal-antialiasing-without-rtx/" class="post-read-more">[Read More]</a>
-                
-              </div>
+<p><font size = "2"></p>
 
+<div class = "downloadable">
+<a href="../../publication/spvg_xie_2020_I3D.pdf">
+    <div>
+    <image style="float: left; width: 12pt; vertical-align:middle" src="../../icons8-pdf-40.png"/>
+    <span>Preprint (75 MB PDF)</span>
+    </div>
+</a>
+</div>
+<div class = "downloadable">
+<a href="../../publication/spvg_xie_2020_I3D_small.pdf">
+    <div>
+    <image style="float: left; width: 12pt; vertical-align:middle" src="../../icons8-pdf-40.png"/>
+    <span>Preprint-small (7.3 MB PDF)</span>
+    </div>
+</a>
+</div>
+<div class = "downloadable">
+<a href="https://dl.acm.org/doi/10.1145/3384536">
+    <div>
+    <image style="float: left; width: 12pt;vertical-align:middle" src="../../icons8-home-40.png"/>
+    <span>Publisher's homepage</span>
+    </div>
+</a>
+</div>
               
-            </article>
+              <a href="https://ThisIsTian.github.io/publication/real-time-subsurface-with-adaptive-sampling/" class="publication-read-more">[Read More]</a>
+              
+              
+
+
+
+            </div>
+
+
+            
+
+          </article>
           
         </div>
 
@@ -393,7 +566,7 @@ Segmentation The first step to implement ATAA is to classify pixel types and rec
 
           &nbsp;&bull;&nbsp;&copy;
           
-            2020
+            2021
           
 
           

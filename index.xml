@@ -7,10 +7,77 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>xtiant1@gmail.com (Tiantian Xie)</managingEditor>
     <webMaster>xtiant1@gmail.com (Tiantian Xie)</webMaster>
-    <lastBuildDate>Wed, 06 May 2020 08:45:22 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 10 Mar 2021 22:14:44 -0500</lastBuildDate>
     
 	<atom:link href="https://ThisIsTian.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Real-time Subsurface Control Variates: Temporally Stable Adaptive Sampling</title>
+      <link>https://ThisIsTian.github.io/publication/real-time-subsurface-control-variates/</link>
+      <pubDate>Wed, 10 Mar 2021 22:14:44 -0500</pubDate>
+      <author>xtiant1@gmail.com (Tiantian Xie)</author>
+      <guid>https://ThisIsTian.github.io/publication/real-time-subsurface-control-variates/</guid>
+      <description>&lt;div class=&#34;publication-preview-teaser&#34;&gt;
+
+&lt;div class=&#34;publication-page&#34;&gt;
+&lt;image src=&#34;../../Image/publication/i3d2021/RegularLighting_Scene_171.png&#34;&gt;&lt;/image&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;project-page&#34;&gt;
+&lt;image src=&#34;../../Image/publication/i3d2021/Teaser.png&#34;&gt;&lt;/image&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;teaser-caption&#34;&gt;
+Figure 1: Dynamic subsurface scene just after light has been turned off. Our method has consistently lower
+          sample count (d) than SPVG [Xie et al. 2020] (c) at this frame. It leads to lower sampling pass time in dynamic
+          lighting from 12.9 ms to 5.2 ms at 3360 × 1440 (×2.5), while maintaining good quality (47.5 dB) vs SPVG (48.6
+          dB). Separable (b) runs fastest for the whole subsurface pass at 4.0 ms, however, with visible banding artifacts.
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p style=&#34;text-align: justify; word-wrap: break-word; font-size:14px&#34;&gt;
+&lt;em&gt;Abstract&lt;/em&gt;: Real-time adaptive sampling is a new technique recently proposed for efficient importance sampling in realtime
+            Monte Carlo sampling in subsurface scattering. It adaptively places samples based on variance tracking
+            to help escape the uncanny valley of subsurface rendering. However, the occasional performance drop due to
+            temporal lighting dynamics (e.g., guns or lights turning on and off) could hinder adoption in games or other
+            applications where smooth high frame rate is preferred. In this paper we propose a novel usage of Control
+            Variates (CV) in the sample domain instead of shading domain to maintain a consistent low pass time. Our
+            algorithm seamlessly reduces to diffuse with zero scattering samples for sub-pixel scattering. We propose a
+            novel joint-optimization algorithm for sample count and CV coefficient estimation. The main enabler is our
+            novel time-variant covariance updating method that helps remove the effect of recent temporal dynamics
+            from variance tracking. Since bandwidth is critical in real-time rendering, a solution without adding any extra
+            textures is also provided.&lt;/p&gt;
+
+&lt;!--- #### Download #### ---&gt;
+
+&lt;p&gt;&lt;font size = &#34;2&#34;&gt;&lt;/p&gt;
+
+&lt;div class=&#34;downloadable&#34;&gt;
+&lt;a href=&#34;../../publication/I3D_2021_preprint.pdf&#34;&gt;
+    &lt;div&gt;
+    &lt;image style=&#34;float: left; width: 12pt; vertical-align:middle&#34; src=&#34;../../icons8-pdf-40.png&#34;/&gt;
+    &lt;span&gt;Preprint (46.2 MB PDF)&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&#34;downloadable&#34;&gt;
+&lt;a href=&#34;../../publication/I3D_2021_preprint_low_res.pdf&#34;&gt;
+    &lt;div&gt;
+    &lt;image style=&#34;float: left; width: 12pt; vertical-align:middle&#34; src=&#34;../../icons8-pdf-40.png&#34;/&gt;
+    &lt;span&gt;Preprint-small (7 MB PDF)&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class = &#34;downloadable&#34;&gt;
+&lt;a href=&#34;../../publication/I3D_2021_supplementary_low_res.pdf&#34;&gt;
+    &lt;div&gt;
+    &lt;image style=&#34;float: left; width: 12pt; vertical-align:middle&#34; src=&#34;../../icons8-pdf-40.png&#34;/&gt;
+    &lt;span&gt;Supplementary (642 KB PDF)&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>Real-time subsurface scattering with single pass variance-guided adaptive importance sampling</title>
@@ -25,7 +92,7 @@ Figure 1: Subsurface rendering comparison from close to far at 1920x1080 on NVID
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;p style=&#34;text-align: justify; word-wrap: break-word; font-size:14px&#34;&gt;
+&lt;p style=&#34;text-align: justify; word-wrap: break-word; font-size:14px&#34;&gt;
 &lt;em&gt;Abstract&lt;/em&gt;: In real-time applications, it is difficult to simulate realistic subsurface scattering with differing degrees
 translucency. Burley’s reflectance approximation by empirically fitting the diffusion profile as a whole makes
 it possible to achieve realistic looking subsurface scattering for different translucent materials in screen
@@ -39,7 +106,36 @@ To further improve the quality, we explore temporal reuse with a guiding pass pr
 anti-aliasing (TAA) phase that further improves the quality. Our local guiding pass does not constrain the
 TAA implementation, and only requires one additional texture to be passed between frames. Our proposed
 variance-guided algorithm has the potential to make stochastic sampling algorithm effective for real-time
-rendering.&lt;/p&gt;&lt;/p&gt;</description>
+rendering.&lt;/p&gt;
+
+&lt;!--- #### Download #### ---&gt;
+
+&lt;p&gt;&lt;font size = &#34;2&#34;&gt;&lt;/p&gt;
+
+&lt;div class = &#34;downloadable&#34;&gt;
+&lt;a href=&#34;../../publication/spvg_xie_2020_I3D.pdf&#34;&gt;
+    &lt;div&gt;
+    &lt;image style=&#34;float: left; width: 12pt; vertical-align:middle&#34; src=&#34;../../icons8-pdf-40.png&#34;/&gt;
+    &lt;span&gt;Preprint (75 MB PDF)&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class = &#34;downloadable&#34;&gt;
+&lt;a href=&#34;../../publication/spvg_xie_2020_I3D_small.pdf&#34;&gt;
+    &lt;div&gt;
+    &lt;image style=&#34;float: left; width: 12pt; vertical-align:middle&#34; src=&#34;../../icons8-pdf-40.png&#34;/&gt;
+    &lt;span&gt;Preprint-small (7.3 MB PDF)&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class = &#34;downloadable&#34;&gt;
+&lt;a href=&#34;https://dl.acm.org/doi/10.1145/3384536&#34;&gt;
+    &lt;div&gt;
+    &lt;image style=&#34;float: left; width: 12pt;vertical-align:middle&#34; src=&#34;../../icons8-home-40.png&#34;/&gt;
+    &lt;span&gt;Publisher&#39;s homepage&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -76,7 +172,8 @@ Segmentation The first step to implement ATAA is to classify pixel types and rec
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>xtiant1@gmail.com (Tiantian Xie)</author>
       <guid>https://ThisIsTian.github.io/page/about/</guid>
-      <description>My name is Tiantian, a Ph.D. student who is interested in Real-time rendering, Game and Machine/Deep Learning.
+      <description>My name is Tiantian, a Ph.D. Candidate who is interested in Real-time rendering, Game and Machine/Deep Learning.
+My recent work is focused on adaptive sampling techniques for real-time rendering that can be directly adapted into game engines with low computing and bandwidth overhead. The adaptive sampling technique has been adopted in Unreal Engine since version 4.24 for subsurface scattering. Several real-time rendering engines have considered integration.
 If you are interested in the posts or me, feel free to contact me through LinkedIn, Twitter(@ThisIsTian) or email.</description>
     </item>
     

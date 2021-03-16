@@ -99,6 +99,43 @@
     display: none;
 }
 
+/*publication image should not be shown in project pages*/
+.publication-page{
+    display: none;
+}
+
+.publication-entry .publication-page{
+    display: inline-block;
+}
+
+.publication-entry .project-page{
+    display: none;
+}
+
+
+.publication-entry .downloadable{
+    border-radius: 4px;
+    border: 2px solid #0085a1;
+    padding: 1px;
+    display: inline-block;
+}
+
+.publication-entry .downloadable:hover{
+    border-radius: 4px;
+    border: 2px solid #0085a1;
+    padding: 1px;
+    display: inline-block;
+    background-color: #0085a1;
+}
+
+.publication-entry .downloadable span{
+    color: #0085a1;
+}
+
+.publication-entry .downloadable:hover span{
+    color:whitesmoke;
+}
+
 
 @media only screen and (min-width: 768px) {
     .publication-preview .publication-title {
