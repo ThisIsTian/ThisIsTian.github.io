@@ -7,10 +7,81 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>xtiant1@gmail.com (Tiantian Xie)</managingEditor>
     <webMaster>xtiant1@gmail.com (Tiantian Xie)</webMaster>
-    <lastBuildDate>Wed, 10 Mar 2021 22:14:44 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 07 Sep 2021 00:13:07 -0400</lastBuildDate>
     
 	<atom:link href="https://ThisIsTian.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cache and Bandwidth Aware Real-time Subsurface Scattering</title>
+      <link>https://ThisIsTian.github.io/publication/cache-and-bandwidth-aware-real-time-subsurface-scattering/</link>
+      <pubDate>Tue, 07 Sep 2021 00:13:07 -0400</pubDate>
+      <author>xtiant1@gmail.com (Tiantian Xie)</author>
+      <guid>https://ThisIsTian.github.io/publication/cache-and-bandwidth-aware-real-time-subsurface-scattering/</guid>
+      <description>&lt;div class=&#34;publication-preview-teaser&#34;&gt;
+
+&lt;div class=&#34;publication-page&#34;&gt;
+&lt;image src=&#34;../../Image/publication/dissertation/MetaHuman.png&#34;&gt;&lt;/image&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;project-page&#34;&gt;
+&lt;image src=&#34;../../Image/publication/dissertation/MetaHuman.png&#34;&gt;&lt;/image&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;teaser-caption&#34;&gt;
+Figure 1: MetaHuman rendered with our proposed subsurface scattering algorithm
+          in Unreal Engine in real time.
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p style=&#34;text-align: justify; word-wrap: break-word; font-size:14px&#34;&gt;
+&lt;em&gt;Abstract&lt;/em&gt;: Photo-realistic subsurface scattering is a demanding feature in many real-time
+                   applications, especially in next-generation games and virtual productions where the
+                   uncanny valley needs to be addressed for real-time human skin rendering. Most
+                   importantly, it must be addressed in milliseconds or less without visible quality
+                   compromise. These quality and performance demands are prohibitively expensive
+                   when using Monte Carlo sampling for subsurface scattering. Moreover, real-time
+                   rendering is limited by hardware capability and GPU cache architectures. This
+                   dissertation explores novel algorithms for high-quality photo-realistic real-time subsurface
+                   scattering with cache incoherence and limited bandwidth.&lt;br&gt;
+
+                   &amp;nbsp;&amp;nbsp;To achieve this, a new generic taxonomy is proposed for heterogeneous realtime
+                   rendering to identify techniques that can improve bandwidth and cache utilization.
+                   A single pass, variance guided, and generic O(1) real-time adaptive sampling
+                   technique is proposed to minimize bandwidth demands and improve cache utilization.
+                   This adaptive sampling pass works with different global temporal accumulation
+                   techniques (e.g., Temporal Anti-Aliasing and Deep Learning Super Sampling).
+                   to further improve quality. We propose a new technique, adaptive filtered importance
+                   sampling (AFIS), based on our single pass adaptive sampling technique and
+                   filtered importance sampling. A hybrid AFIS and the separable approximation technique
+                   allows the user to balance quality and performance. To deal with instability
+                   during dynamic lighting, a novel use of Control Variates (CV) in the sample domain
+                   instead of shading domain is proposed.&lt;br&gt;
+                   &amp;nbsp;&amp;nbsp;Our algorithm induces as little as one texture overhead to a real-time rendering
+                   engine, and has been battle tested in the Unreal Engine, a commercial game engine.&lt;/p&gt;
+
+&lt;!--- #### Download #### ---&gt;
+
+&lt;p&gt;&lt;font size = &#34;2&#34;&gt;&lt;/p&gt;
+
+&lt;div class=&#34;downloadable&#34;&gt;
+&lt;a href=&#34;../../publication/SSS_2021_tiantian_dissertation.pdf&#34;&gt;
+    &lt;div&gt;
+    &lt;image style=&#34;float: left; width: 12pt; vertical-align:middle&#34; src=&#34;../../icons8-pdf-40.png&#34;/&gt;
+    &lt;span&gt;Dissertation (23.2 MB PDF)&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;downloadable&#34;&gt;
+&lt;a href=&#34;../../publication/Defense_Slides.pdf&#34;&gt;
+    &lt;div&gt;
+    &lt;image style=&#34;float: left; width: 12pt; vertical-align:middle&#34; src=&#34;../../icons8-pdf-40.png&#34;/&gt;
+    &lt;span&gt;Defense Slides (89.1 MB PDF)&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>Real-time Subsurface Control Variates: Temporally Stable Adaptive Sampling</title>
