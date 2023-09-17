@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     
 
@@ -7,26 +7,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Post 2: Add Volumetric Material Support - Titan de Tian</title>
-  <meta property="og:title" content="Post 2: Add Volumetric Material Support" />
-  <meta name="twitter:title" content="Post 2: Add Volumetric Material Support" />
+ 
+
+
+      <title>Post 2: Add Volumetric Material Support - </title>
+
   <meta name="description" content="Introduction Volume objects are a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.">
-  <meta property="og:description" content="Introduction Volume objects are a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.">
-  <meta name="twitter:description" content="Introduction Volume objects are a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object …">
   <meta name="author" content="Tiantian Xie"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
     "name": "Titan de Tian",
     
-    "url": "https://ThisIsTian.github.io"
+    "url": "https:\/\/ThisIsTian.github.io"
 }
 </script><script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https://ThisIsTian.github.io"
+  "url": "https:\/\/ThisIsTian.github.io"
   
   
   
@@ -41,14 +41,14 @@
         "@type": "ListItem",
         "position": 1,
         "item": {
-          "@id": "https://ThisIsTian.github.io",
+          "@id": "https:\/\/ThisIsTian.github.io",
           "name": "home"
         }
     },{
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https://ThisIsTian.github.io/post/add-volumetric-material-support/",
+          "@id": "https:\/\/ThisIsTian.github.io\/post\/add-volumetric-material-support\/",
           "name": "Post 2 add volumetric material support"
         }
     }]
@@ -63,18 +63,18 @@
   "headline": "Post 2: Add Volumetric Material Support",
   "description" : "Introduction Volume objects are a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.",
   "inLanguage" : "en",
-  "wordCount": 1503,
+  "wordCount":  1503 ,
   "datePublished" : "2019-01-06T08:48:15",
   "dateModified" : "2019-01-06T08:48:15",
-  "image" : "https://ThisIsTian.github.io/favicon.ico",
+  "image" : "https:\/\/ThisIsTian.github.io\/favicon.ico",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https://ThisIsTian.github.io/post/add-volumetric-material-support/",
+  "mainEntityOfPage" : "https:\/\/ThisIsTian.github.io\/post\/add-volumetric-material-support\/",
   "publisher" : {
     "@type": "Organization",
-    "name" : "https://ThisIsTian.github.io",
+    "name" : "https:\/\/ThisIsTian.github.io",
     "logo" : {
         "@type" : "ImageObject",
-        "url" : "https://ThisIsTian.github.io/favicon.ico",
+        "url" : "https:\/\/ThisIsTian.github.io\/favicon.ico",
         "height" :  60 ,
         "width" :  60
     }
@@ -89,46 +89,36 @@
 <meta property="og:url" content="https://ThisIsTian.github.io/post/add-volumetric-material-support/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Titan de Tian" />
+
   <meta name="twitter:title" content="Post 2: Add Volumetric Material Support" />
   <meta name="twitter:description" content="Introduction Volume objects are a good fit for ATAA, because high luminance variance can be introduced by 1) randomization of ray marching start position to mitigate slicing effect, and 2) object …">
   <meta name="twitter:image" content="https://ThisIsTian.github.io/favicon.ico" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@ThisIsTian" />
   <meta name="twitter:creator" content="@ThisIsTian" />
   <link href='https://ThisIsTian.github.io/favicon.ico' rel='icon' type='image/x-icon'/>
-
-  
-   <meta property="og:image" content="https://ThisIsTian.github.io/favicon.ico" />
-    <meta name="twitter:image" content="https://ThisIsTian.github.io/favicon.ico" />
-  
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@ThisIsTian" />
-  <meta name="twitter:creator" content="@ThisIsTian" />
-  <meta property="fb:app_id" content="541191449733147" />
-  
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Titan de Tian" />
-
-  <meta name="generator" content="Hugo 0.36.1" />
-  <link rel="alternate" href="https://ThisIsTian.github.io/index.xml" type="application/rss+xml" title="Titan de Tian">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <meta name="generator" content="Hugo 0.118.2">
+  <link rel="alternate" href="https://ThisIsTian.github.io/index.xml" type="application/rss+xml" title="Titan de Tian"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://ThisIsTian.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://ThisIsTian.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
   <link rel="stylesheet" href="https://ThisIsTian.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://ThisIsTian.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ThisIsTian.github.io/css/publication.css" />
+<link rel="stylesheet" href="https://ThisIsTian.github.io/css/travel.css" />
+
+
 
 <script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-132189135-1', 'auto');
-ga('send', 'pageview');
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-
-
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -166,6 +156,12 @@ ga('send', 'pageview');
           
             <li>
               <a title="Blog" href="https://ThisIsTian.github.io/post">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="travel" href="https://ThisIsTian.github.io/travel">travel</a>
             </li>
           
         
@@ -255,22 +251,20 @@ ga('send', 'pageview');
 
 
 
-
   
-    <div id="header-big-imgs" data-num-img=1 
+    <div id="header-big-imgs" data-num-img=1
       
          
-          data-img-src-1="/Image/TAAATAAMultiple.png" 
+          data-img-src-1="/Image/TAAATAAMultiple.png"
          
          data-img-desc-1="Multiple volumetric objects in motion"
       ></div>
   
 
-
-
   <header class="header-section has-img">
     
-      <div class="intro-header big-img">
+      
+      <div class="intro-header big-img" style="background-image: url('/Image/TAAATAAMultiple.png');">
         
         <div class="container">
           <div class="row">
@@ -285,9 +279,18 @@ ga('send', 'pageview');
   <i class="fas fa-calendar"></i>&nbsp;Posted on January 6, 2019
   
   
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;8&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Tiantian Xie
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1503&nbsp;words
+  
+  
+    
+      
+        &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Tiantian Xie
+      
+    
+  
   
 </span>
 
@@ -297,8 +300,9 @@ ga('send', 'pageview');
             </div>
           </div>
         </div>
-        <span class="img-desc" style="display: inline;"></span>
+        <span class="img-desc" style="display: inline;">Multiple volumetric objects in motion</span>
       </div>
+    
     
     <div class="intro-header no-img">
       <div class="container">
@@ -317,9 +321,18 @@ ga('send', 'pageview');
   <i class="fas fa-calendar"></i>&nbsp;Posted on January 6, 2019
   
   
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;8&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Tiantian Xie
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1503&nbsp;words
+  
+  
+    
+      
+        &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Tiantian Xie
+      
+    
+  
   
 </span>
 
@@ -330,6 +343,7 @@ ga('send', 'pageview');
         </div>
       </div>
     </div>
+  
   </header>
 
 
@@ -338,232 +352,241 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-
-
-        
-
-<h2 id="introduction">Introduction</h2>
-
+        <h2 id="introduction">Introduction</h2>
 <p>Volume objects are a good fit for ATAA, because high luminance variance can be introduced by <strong>1)</strong> randomization of ray marching start position to mitigate slicing effect, and <strong>2)</strong> object motions that create blurry and ghosting effects within the volume object. If we replace those high variance pixels with correct tracing pixels, volume objects can be perfect rendered without any artifacts. The big picture above illustrates this point. In this post, I will show how I added correct ATAA support to custom volumetric material within the path tracer created in the last post.</p>
-
 <h2 id="custom-volumetric-material-in-ue4">Custom volumetric material in UE4</h2>
-
 <p>The image below shows the volumetric material to support ATAA. In the <em><strong>Custom</strong></em> function, a basic ray marching algorithm is implemented, which is directly provided to us by Marc. The basic idea is to trace a shadow ray marching to the light source for each marching step. The density of the volume is a Perlin noise controlled by the NoiseMin and NoiseMax. You can refer to Ryan&rsquo;s blog on <a href="https://shaderbits.com/blog/creating-volumetric-ray-marcher">Creating a Volumetric Ray marcher</a> for a complete guide.</p>
-
 <table>
 <thead>
 <tr>
-<th align="left"><img src="https://ThisIsTian.github.io/Image/UE4VolumetricObjectSample.png"/></th>
+<th style="text-align:left"><img src="https://ThisIsTian.github.io/Image/UE4VolumetricObjectSample.png"/></th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="left">A screenshot of the volumetric material.</td>
+<td style="text-align:left">A screenshot of the volumetric material.</td>
 </tr>
 </tbody>
 </table>
-
 <p>The ray marching shader code for the <em><strong>Custom</strong></em> function is post here as below (got permission from Marc):</p>
-
-<pre><code class="language-C++">#define DENSITY(P) ( \
-    saturate(smoothstep(1.0, 0.8, length(P) / Radius)) * \
-    smoothstep(NoiseMin, NoiseMax, \
-        MaterialExpressionNoise(P, 0.05, 1, 2, true, 6, \
-            1.0, 0.0, 2.0, 0.0, false, 512.0)) \
-    )
-
-float3 PositionWorld = Parameters.AbsoluteWorldPosition.xyz;
-float3 CenterWorld = Primitive.ObjectWorldPositionAndRadius.xyz;
-float Radius = Primitive.ObjectWorldPositionAndRadius.w;
-float3 P = PositionWorld - CenterWorld;
-
-float3 Ray = -Parameters.CameraVector.xyz;
-float RayStepSize = 2.0 * Radius / MaxSteps.x;
-float3 RayStep = Ray * RayStepSize;
-
-float3 ShadowRay = View.AtmosphericFogSunDirection.xyz;
-if (dot(ShadowRay, ShadowRay) &lt; 0.5) ShadowRay = normalize(float3(1,1,1));
-
-float ShadowStepSize = 2.0 * Radius / ShadowSteps.x;
-float3 ShadowStep = ShadowRay * ShadowStepSize;
-
-int3 RandPos = int3(Parameters.SvPosition.xy, View.FrameNumber);
-float Rand = float(Rand3DPCG16(RandPos).x) / 0x10000;
-P += RayStep * Rand;
-
-float4 Color = 0;
-for(int i = 0;
-    i &lt; MaxSteps &amp;&amp; length(P) &lt; Radius;
-    ++i, P += RayStep)
-{
-    float4 LocalColor = float4(Albedo.rgb, 1) * DENSITY(P);
-
-    if (LocalColor.a &gt; 0.0) {
-        float3 SP = P + ShadowStep;
-        float Shadow = 0;
-        for(int j = 0;
-            j &lt; ShadowSteps &amp;&amp; length(SP) &lt; Radius;
-            ++j, SP += ShadowStep)
-        {
-            Shadow += (1.0 - Shadow) * DENSITY(SP);
-        }
-        LocalColor.rgb *= (1.0 - Shadow);
-    }
-
-    Color += (1. - Color.a) * LocalColor;
-}
-
-return Color;
-</code></pre>
-
-<h2 id="problems">Problems</h2>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#define DENSITY(P) ( \
+</span></span></span><span class="line"><span class="cl"><span class="cp">    saturate(smoothstep(1.0, 0.8, length(P) / Radius)) * \
+</span></span></span><span class="line"><span class="cl"><span class="cp">    smoothstep(NoiseMin, NoiseMax, \
+</span></span></span><span class="line"><span class="cl"><span class="cp">        MaterialExpressionNoise(P, 0.05, 1, 2, true, 6, \
+</span></span></span><span class="line"><span class="cl"><span class="cp">            1.0, 0.0, 2.0, 0.0, false, 512.0)) \
+</span></span></span><span class="line"><span class="cl"><span class="cp">    )
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="n">float3</span> <span class="n">PositionWorld</span> <span class="o">=</span> <span class="n">Parameters</span><span class="p">.</span><span class="n">AbsoluteWorldPosition</span><span class="p">.</span><span class="n">xyz</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">float3</span> <span class="n">CenterWorld</span> <span class="o">=</span> <span class="n">Primitive</span><span class="p">.</span><span class="n">ObjectWorldPositionAndRadius</span><span class="p">.</span><span class="n">xyz</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">Radius</span> <span class="o">=</span> <span class="n">Primitive</span><span class="p">.</span><span class="n">ObjectWorldPositionAndRadius</span><span class="p">.</span><span class="n">w</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">float3</span> <span class="n">P</span> <span class="o">=</span> <span class="n">PositionWorld</span> <span class="o">-</span> <span class="n">CenterWorld</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">float3</span> <span class="n">Ray</span> <span class="o">=</span> <span class="o">-</span><span class="n">Parameters</span><span class="p">.</span><span class="n">CameraVector</span><span class="p">.</span><span class="n">xyz</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">RayStepSize</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">Radius</span> <span class="o">/</span> <span class="n">MaxSteps</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">float3</span> <span class="n">RayStep</span> <span class="o">=</span> <span class="n">Ray</span> <span class="o">*</span> <span class="n">RayStepSize</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">float3</span> <span class="n">ShadowRay</span> <span class="o">=</span> <span class="n">View</span><span class="p">.</span><span class="n">AtmosphericFogSunDirection</span><span class="p">.</span><span class="n">xyz</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">ShadowRay</span><span class="p">,</span> <span class="n">ShadowRay</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="n">ShadowRay</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">float3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">ShadowStepSize</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">Radius</span> <span class="o">/</span> <span class="n">ShadowSteps</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">float3</span> <span class="n">ShadowStep</span> <span class="o">=</span> <span class="n">ShadowRay</span> <span class="o">*</span> <span class="n">ShadowStepSize</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">int3</span> <span class="n">RandPos</span> <span class="o">=</span> <span class="n">int3</span><span class="p">(</span><span class="n">Parameters</span><span class="p">.</span><span class="n">SvPosition</span><span class="p">.</span><span class="n">xy</span><span class="p">,</span> <span class="n">View</span><span class="p">.</span><span class="n">FrameNumber</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">Rand</span> <span class="o">=</span> <span class="kt">float</span><span class="p">(</span><span class="n">Rand3DPCG16</span><span class="p">(</span><span class="n">RandPos</span><span class="p">).</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="mh">0x10000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">P</span> <span class="o">+=</span> <span class="n">RayStep</span> <span class="o">*</span> <span class="n">Rand</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">float4</span> <span class="n">Color</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MaxSteps</span> <span class="o">&amp;&amp;</span> <span class="n">length</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">Radius</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">++</span><span class="n">i</span><span class="p">,</span> <span class="n">P</span> <span class="o">+=</span> <span class="n">RayStep</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">float4</span> <span class="n">LocalColor</span> <span class="o">=</span> <span class="n">float4</span><span class="p">(</span><span class="n">Albedo</span><span class="p">.</span><span class="n">rgb</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">DENSITY</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">LocalColor</span><span class="p">.</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">float3</span> <span class="n">SP</span> <span class="o">=</span> <span class="n">P</span> <span class="o">+</span> <span class="n">ShadowStep</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">Shadow</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">j</span> <span class="o">&lt;</span> <span class="n">ShadowSteps</span> <span class="o">&amp;&amp;</span> <span class="n">length</span><span class="p">(</span><span class="n">SP</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">Radius</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">j</span><span class="p">,</span> <span class="n">SP</span> <span class="o">+=</span> <span class="n">ShadowStep</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Shadow</span> <span class="o">+=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">Shadow</span><span class="p">)</span> <span class="o">*</span> <span class="n">DENSITY</span><span class="p">(</span><span class="n">SP</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">LocalColor</span><span class="p">.</span><span class="n">rgb</span> <span class="o">*=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">Shadow</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Color</span> <span class="o">+=</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">Color</span><span class="p">.</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">LocalColor</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="n">Color</span><span class="p">;</span>
+</span></span></code></pre></div><h2 id="problems">Problems</h2>
 <p>There are at least three problems to solve to make the path tracing post process produce the same output as UE4 rasterization pipeline does.</p>
-
 <ol>
-<li><p><strong>How to trace the volumetric object UE4 friendly</strong>. For a path tracer, if a ray intersects a volumetric object, it will go in and follow the <em>Radiative Transportation Equation</em>, after attenuation and bouncing inside the volume, it will bounce out of the object. However, if we use the same technique here used in the film industry using either delta tracking, ratio tracking or ray marching etc., we will be unable to match the rendering result with the volumetric material, at least with limited rays. We need to apply a similar approach as used in UE4 - the volumetric objects are rendered in a different pass other than opaque objects.</p></li>
-
-<li><p><strong>There is no shadow for the custom volumetric material</strong>. If we follow the path tracing framework, volumetric shadows will be created, which is a problem if we need to apply ATAA, since we do not have shadow for them in UE4 by default. So, we need to modify the path tracer to avoid shadow for volumetric material.</p></li>
-
-<li><p><strong>Generic solution to support all volumetric materials</strong>. We can hard code the material shader into the post process without relying on the editor, but a more generic solution that can be automated, at least in a later phase, is preferred. Then, users can have volumetric objects supporting ATAA without extra efforts. However, their change to the material in the editor is directly reflected in the rendering.</p></li>
+<li>
+<p><strong>How to trace the volumetric object UE4 friendly</strong>. For a path tracer, if a ray intersects a volumetric object, it will go in and follow the <em>Radiative Transportation Equation</em>, after attenuation and bouncing inside the volume, it will bounce out of the object. However, if we use the same technique here used in the film industry using either delta tracking, ratio tracking or ray marching etc., we will be unable to match the rendering result with the volumetric material, at least with limited rays. We need to apply a similar approach as used in UE4 - the volumetric objects are rendered in a different pass other than opaque objects.</p>
+</li>
+<li>
+<p><strong>There is no shadow for the custom volumetric material</strong>. If we follow the path tracing framework, volumetric shadows will be created, which is a problem if we need to apply ATAA, since we do not have shadow for them in UE4 by default. So, we need to modify the path tracer to avoid shadow for volumetric material.</p>
+</li>
+<li>
+<p><strong>Generic solution to support all volumetric materials</strong>. We can hard code the material shader into the post process without relying on the editor, but a more generic solution that can be automated, at least in a later phase, is preferred. Then, users can have volumetric objects supporting ATAA without extra efforts. However, their change to the material in the editor is directly reflected in the rendering.</p>
+</li>
 </ol>
-
 <h2 id="hacking-solution">Hacking solution</h2>
-
 <p>To solve the first problem, we can directly call the same shader code when a ray hit a volumetric object, and keep the resulting <em>rgba</em> component as transparent color. Then we decrease the number of bouncing and set the ray to the far ray object intersection point. If we keep on hitting another volumetric object, we can accumulate the new color to the old one with alpha blending. In this way, we can support multiple transparent objects. The drawback here is that we cannot handle rays that does not travel in a straight line.</p>
-
 <p>To solve the second problem, we can add a flag to the bouncing ray. Once it bounces to an opaque object, we will disable the accumulation of volumetric objects. However, when UE4 supports shadow for custom volumetric material by default, we can remove this hack solution.</p>
-
 <p>The third problem requires an API to access the material parameters as well as the custom shader code before going into the default pass. For example, in the material figure above, we need to get the <code>Albedo</code> parameter and the shader code before going into <code>Emissive Color</code> and <code>Opacity</code>. We also need to know which material has been interacted when a ray hit an object. The <code>MaterialID</code> is my current hack for this purpose. For this volumetric object, it has <code>MaterialID = 4</code>.</p>
-
 <p>After exploration in the codebase, I achieved half of it. I was able to get parameters automatically with the material interface. For example, it supports dynamic change of the parameter <code>Albedo</code>.  But I did not have the luck to get material shader code automatically regenerated into the tracing post process - I added the shader code manually for volumetric material.</p>
-
 <h2 id="lighting-mismatch-problem">Lighting mismatch problem</h2>
-
 <p>So I implemented the solution without supporting multiple volumetric objects at first in hope that it works. Yet another problem showed up: the path tracing color of the floor did not match the color of the floor in UE4. It is the mismatch that I have not fixed in the last post.</p>
-
 <table>
 <thead>
 <tr>
-<th align="center"><img src="https://ThisIsTian.github.io/Image/SparsePathTracingVolume.png"   /></th>
-<th align="center"><img src="https://ThisIsTian.github.io/Image/SparsePathTracingVolumeCombine.png"  /></th>
+<th style="text-align:center"><img src="https://ThisIsTian.github.io/Image/SparsePathTracingVolume.png"   /></th>
+<th style="text-align:center"><img src="https://ThisIsTian.github.io/Image/SparsePathTracingVolumeCombine.png"  /></th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="center">a) Sparse traced scene color</td>
-<td align="center">b) Floor color mismatch after combining TAA and ATAA pixels</td>
+<td style="text-align:center">a) Sparse traced scene color</td>
+<td style="text-align:center">b) Floor color mismatch after combining TAA and ATAA pixels</td>
 </tr>
 </tbody>
 </table>
-
 <p>Image a) shows the sparsely traced scene. Since the volume is moving, pixels with high variance are path traced. However, the  background color is different from that in UE4 deferred rendering as shown in image b). We still need to solve the lighting mismatch problem.</p>
-
 <h3 id="lighting-re-configuration">Lighting re-configuration</h3>
-
 <p>In the demo scene above, I did not alter post process settings in the editor. So the global illuminance and sunlight are both used. And the albedo of the floor material is the same because the configuration is automatically uploaded to the shader. So I think it&rsquo;s the time to downgrade configurations to make them the same. My best guess was to disable the global illuminance, because in the last post, it did not lead to a matching result.</p>
-
 <p><strong>First trial</strong>: So I disabled global illuminance by setting <code>ShowFlag.GlobalIllumination 0</code> in the standalone game, and disabled GI in the tracing shader code, and do not use the MIS for the BRDF, but using the sunlight alone. Then I get the result in image a):</p>
-
 <table>
 <thead>
 <tr>
-<th align="center"><img src="https://ThisIsTian.github.io/Image/SparsePathTracingWithoutGI.png"   /></th>
-<th align="center"><img src="https://ThisIsTian.github.io/Image/SparsePathTracingNoSoftShadow.png"  /></th>
+<th style="text-align:center"><img src="https://ThisIsTian.github.io/Image/SparsePathTracingWithoutGI.png"   /></th>
+<th style="text-align:center"><img src="https://ThisIsTian.github.io/Image/SparsePathTracingNoSoftShadow.png"  /></th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="center">a) ATAA without GI</td>
-<td align="center">b) Sparse tracing without soft shadow</td>
+<td style="text-align:center">a) ATAA without GI</td>
+<td style="text-align:center">b) Sparse tracing without soft shadow</td>
 </tr>
 </tbody>
 </table>
-
 <p>I still got the mismatch problem there. I almost give up until&hellip;</p>
-
 <p><strong>Nth trial</strong>: So I disabled the soft shadow in the path tracer code apart from what I did in trial one. Behold! See the result in image b) above. They finally match. To have a close look, I take two screen shots: one with TAA and the other with ATAA on as below:</p>
-
 <table>
 <thead>
 <tr>
-<th align="center"><img src="https://ThisIsTian.github.io/Image/VolumeRandomDemoNoise.png"   /></th>
-<th align="center"><img src="https://ThisIsTian.github.io/Image/VolumeRandomDemo.png"  /></th>
+<th style="text-align:center"><img src="https://ThisIsTian.github.io/Image/VolumeRandomDemoNoise.png"   /></th>
+<th style="text-align:center"><img src="https://ThisIsTian.github.io/Image/VolumeRandomDemo.png"  /></th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="center">a) TAA</td>
-<td align="center">b) ATAA</td>
+<td style="text-align:center">a) TAA</td>
+<td style="text-align:center">b) ATAA</td>
 </tr>
 </tbody>
 </table>
-
 <p>The ATAA is rendered with 64 bounce and with a max bounce per ray as 1, which is equal to 32 spp. Only pixels with variance higher than 0.005 are traced. You can open them in anothe tab to see the improvement.</p>
-
 <h2 id="transparency-mismatch-problem">Transparency mismatch problem</h2>
-
 <p>Then I added another volumetric object to test if the transparency is correct by applying alpha blending formula if a ray hits two consecutive volumetric objects:</p>
-
 <p>$$
 src_{RGBA}+=dst_{RGBA}(1-src_A)
 $$</p>
-
 <p>However, UE4 does not apply this simplified alpha blending formula between two consecutive transparent objects directly.</p>
-
 <table>
 <thead>
 <tr>
-<th align="center"><img src="https://ThisIsTian.github.io/Image/AlphaBlendingTAA.png"   /></th>
-<th align="center"><img src="https://ThisIsTian.github.io/Image/AlphaBlendingSimple.png"   /></th>
+<th style="text-align:center"><img src="https://ThisIsTian.github.io/Image/AlphaBlendingTAA.png"   /></th>
+<th style="text-align:center"><img src="https://ThisIsTian.github.io/Image/AlphaBlendingSimple.png"   /></th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="center">a) Default transparency combination in UE4</td>
-<td align="center">b) Transparency using the above blending equation in the tracer</td>
+<td style="text-align:center">a) Default transparency combination in UE4</td>
+<td style="text-align:center">b) Transparency using the above blending equation in the tracer</td>
 </tr>
-
 <tr>
-<td align="center"><img src="https://ThisIsTian.github.io/Image/AlphaBlendingOverOp.png"/></td>
-<td align="center"></td>
+<td style="text-align:center"><img src="https://ThisIsTian.github.io/Image/AlphaBlendingOverOp.png"/></td>
+<td></td>
 </tr>
-
 <tr>
-<td align="center">c) ATAA with corrected blending</td>
-<td align="center"></td>
+<td style="text-align:center">c) ATAA with corrected blending</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-
 <p>You can compare the difference between image a) and b) above within the overlapping region. They are not the same. After exploration, I find that UE4 applies <a href="https://en.wikipedia.org/wiki/Alpha_compositing">Porter and Duff&rsquo;s <strong>over operator</strong></a> to blend transparent objects. The formula is as below:</p>
-
 <p>$$
 out_{A}=src_{A}+(1-src_{A})\cdot dst_A
 $$</p>
-
 <p>$$
 out_{RGB}=(src_{RGB}\cdot src_{A}+(1-src_{A})\cdot dst_A \cdot dst_{RGB})/out_{A}
 $$</p>
-
 <p>$$
 out_{A}=0 \rightarrow out_{RGB}=0
 $$</p>
-
 <p>With this over operator, a rendering result that matches the UE4 output can be created. Image c) shows the final rendering with corrected blending. I also find that, in order to use the simplified alpha blending, the color should be premultiplied with its alpha channel.</p>
-
 <h2 id="future-works">Future works</h2>
-
 <p>I am very excited when it works. However, I have somehow oversimplified the lighting configuration. The correct global illuminance should be added back at least. Otherwise, we cannot support even the default scene setup in UE4.</p>
 
 
         
 
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fThisIsTian.github.io%2fpost%2fadd-volumetric-material-support%2f&amp;text=Post%202%3a%20Add%20Volumetric%20Material%20Support&amp;via=ThisIsTian" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fThisIsTian.github.io%2fpost%2fadd-volumetric-material-support%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fThisIsTian.github.io%2fpost%2fadd-volumetric-material-support%2f&amp;title=Post%202%3a%20Add%20Volumetric%20Material%20Support" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fThisIsTian.github.io%2fpost%2fadd-volumetric-material-support%2f&amp;title=Post%202%3a%20Add%20Volumetric%20Material%20Support" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fThisIsTian.github.io%2fpost%2fadd-volumetric-material-support%2f&amp;title=Post%202%3a%20Add%20Volumetric%20Material%20Support" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fThisIsTian.github.io%2fpost%2fadd-volumetric-material-support%2f&amp;description=Post%202%3a%20Add%20Volumetric%20Material%20Support" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
         
 
         
@@ -586,8 +609,8 @@ $$</p>
           
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script>
-    var disqus_config = function () {
+<script type="application/javascript">
+    window.disqus_config = function () {
     
     
     
@@ -615,14 +638,24 @@ $$</p>
   </div>
 </div>
 
-    <footer>
+      
+<footer>
   <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my employer’s view in any way.
+      </div>
+    </div>
+    
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <ul class="list-inline text-center footer-links">
           
               <li>
-                <a href="mailto:xtiant1@gmail.com" title="Email me">
+		
+		  <a href="mailto:xtiant1@gmail.com" title="Email me">
+		
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
@@ -630,7 +663,9 @@ $$</p>
                 </a>
               </li>
               <li>
-                <a href="https://twitter.com/ThisIsTian" title="Twitter">
+		
+		  <a href="https://twitter.com/ThisIsTian" title="Twitter">
+		
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
@@ -638,7 +673,9 @@ $$</p>
                 </a>
               </li>
               <li>
-                <a href="https://linkedin.com/in/tiantianxie" title="LinkedIn">
+		
+		  <a href="https://linkedin.com/in/tiantianxie" title="LinkedIn">
+		
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
@@ -647,9 +684,7 @@ $$</p>
               </li>
           
           <li>
-            
-            <a href="https://ThisIsTian.github.io/index.xml" title="RSS">
-            
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
@@ -667,7 +702,7 @@ $$</p>
 
           &nbsp;&bull;&nbsp;&copy;
           
-            2021
+            2023
           
 
           
@@ -677,38 +712,22 @@ $$</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.36.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="https://gohugo.io">Hugo v0.118.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
     </div>
   </div>
-</footer>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
-<script  src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
-<script  src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
-<script>
-    renderMathInElement(
-        document.body,
-        {
-            delimiters: [
-                {left: "$$", right: "$$", display: true},
-                {left: "\\[", right: "\\]", display: true},
-                {left: "$", right: "$", display: false},
-                {left: "\\(", right: "\\)", display: false}
-            ]
-        }
-    );
-</script>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://ThisIsTian.github.io/js/main.js"></script>
 <script src="https://ThisIsTian.github.io/js/highlight.min.js"></script>
 <script> hljs.initHighlightingOnLoad(); </script>
-<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script>
-<script src="https://ThisIsTian.github.io/js/load-photoswipe.js"></script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://ThisIsTian.github.io/js/load-photoswipe.js"></script>
 
 
 
@@ -717,6 +736,8 @@ $$</p>
 
 
 
+
+    
   </body>
 </html>
 
