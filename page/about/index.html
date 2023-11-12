@@ -63,7 +63,7 @@
   "headline": "About me",
   "description" : "Hi, my name is Tiantian Xie (Tientien Hsieh), who is interested in Real-time rendering, Game and Machine\/Deep Learning. I was advised by Dr. Marc Olano and received my PhD degree in Computer Science from UMBC in 2021. I currently work at Epic Games as Rendering Programmer.\nMy recent work is focused on adaptive sampling techniques for real-time rendering that can be directly adapted into game engines with low computing and bandwidth overhead.",
   "inLanguage" : "en",
-  "wordCount":  167 ,
+  "wordCount":  246 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/ThisIsTian.github.io\/favicon.ico",
@@ -306,7 +306,26 @@ be directly adapted into game engines with low computing and bandwidth overhead.
 technique has been adopted in Unreal Engine since version 4.24 for high quality subsurface scattering.
 It first appears in <a href="https://www.youtube.com/watch?v=2TR0gaG01do">Senua&rsquo;s Saga: Hellblade 2</a> reveal demo at TGA 2019. Several real-time rendering
 engines have considered integration. The stability enhancement with Control Variates has made
-into <a href="https://www.youtube.com/watch?v=WU0gvPcc3jQ">The Matrix Awakens: An Unreal Engine 5 Experience</a> at TGA 2021 to provide stable and high quality subsurface scattering in real time.</p>
+into <a href="https://www.youtube.com/watch?v=WU0gvPcc3jQ">The Matrix Awakens: An Unreal Engine 5 Experience</a> at TGA 2021 to provide stable and high quality subsurface scattering in real time. More improvements by version:</p>
+<ul>
+<li>Unreal Engine 5.1
+<ul>
+<li>Unify the diffusion model to <a href="https://graphics.pixar.com/library/ApproxBSSRDF/paper.pdf">Christensen and Burley&rsquo;s diffusion model</a>, and parameterization to mfp.</li>
+<li>Match PT and Raster subsurface scattering under ideal lighting.</li>
+</ul>
+</li>
+<li>Unreal Engine 5.2
+<ul>
+<li>Improve rough surface rendering for human skin with <a href="https://advances.realtimerendering.com/s2018/MaterialAdvancesInWWII.pdf">Chan&rsquo;s diffuse model</a>.</li>
+<li>Add path-traced anisotropic subsurface scattering with <code>Subsurface Meidum</code> node in the Material Editor.</li>
+</ul>
+</li>
+<li>Unreal Engine 5.3
+<ul>
+<li>Add <code>ExtinctionScale</code> control to ray traced transmission for subsurface scattering (Better PT ear rendering match with ray traced shadow).</li>
+</ul>
+</li>
+</ul>
 <p>During my spare time, I play computer games and do bouldering and top rop at RTP regions.</p>
 <p>Feel free to contact through LinkedIn, Twitter(@ThisIsTian) or email.</p>
 
